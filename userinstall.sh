@@ -21,6 +21,7 @@ cd uk-intl-kb
 sudo -s
 cat uk-intl-kb >> /usr/share/X11/xkb/symbols/gb
 mv evdev.xml /usr/share/X11/xkb/rules/evdev.xml
+exit
 
 curl -L https://github.com/ISmellACommie/Arch-Install-Scripts/releases/download/1.0/WindowsFonts.zip > WindowsFonts.zip
 mkdir WindowsFonts
