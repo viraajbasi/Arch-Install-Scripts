@@ -22,7 +22,7 @@ sudo -s
 cat uk-intl-kb >> /usr/share/X11/xkb/symbols/gb
 mv evdev.xml /usr/share/X11/xkb/rules/evdev.xml
 
-curl -L https://github.com/ISmellACommie/Arch-Install-Scripts/releases/download/[version]/[file] > WindowsFonts.zip
+curl -L https://github.com/ISmellACommie/Arch-Install-Scripts/releases/download/1.0/WindowsFonts.zip > WindowsFonts.zip
 mkdir WindowsFonts
 unzip WindowsFonts.zip -d WindowsFonts
 rm -rf WindowsFonts.zip
