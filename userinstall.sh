@@ -16,7 +16,7 @@ xdg-user-dirs-update
 
 git clone https://aur.archlinux.org/yay
 cd yay
-makepkg -si
+makepkg -si --noconfirm
 cd ..
 
 git clone https://github.com/jmrio/uk-intl-kb
