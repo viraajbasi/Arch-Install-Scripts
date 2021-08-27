@@ -2,8 +2,9 @@
 
 curl -L https://get.oh-my.fish > install
 fish install --path=~/.local/share/omf --config=~/.config/omf
-omf install chain
-omf theme chain
+# omf install chain
+# omf theme chain
+exit
 echo "set fish_greeting" >> ~/.config/fish/config.fish
 
 mkdir -p ~/.config/nvim
