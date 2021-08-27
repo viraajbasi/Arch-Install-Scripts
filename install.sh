@@ -16,8 +16,11 @@ sed -i "s/default .*/default arch-*/" /boot/loader/loader.conf
 echo -e "title\tArch Linux\nlinux\t/vmlinuz-linux\ninitrd\t/initramfs-linux.img\noptions\troot=/dev/sda2 rw" >> /boot/loader/entries/arch.conf
 
 echo "root:password" | chpasswd
+sed -i "82s/# //" /etc/sudoers
+useradd -mG wheel viraaj
+echo "viraaj:password" | chpasswd
 
-sed -i "93,94s/#//;37/#//" /etc/pacman.conf
+sed -i "93,94s/#//;37s/#//" /etc/pacman.conf
 pacman -Syu --needed base-devel fish networkmanager bluez bluez-utils efibootmgr dosfstools mtools ntfs-3g xdg-user-dirs pipewire pipewire-pulse pipewire-jack pipewire-alsa htop neofetch ttf-font-awesome noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
 
 systemctl enable NetworkManager.service bluetooth.service
