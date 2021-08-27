@@ -7,6 +7,8 @@ fish install --path=~/.local/share/omf --config=~/.config/omf
 exit
 echo "set fish_greeting" >> ~/.config/fish/config.fish
 
+sudo mv evdev.xml /usr/share/X11/xkb/rules/evdev.xml
+
 mkdir -p ~/.config/nvim
 echo -e "syntax on\nset smartindent\nset nu\nset nowrap\nset smartcase\nset incsearch\nset tabstop=4\nset noerrorbells" >> ~/.config/nvim/init.vim
 
@@ -19,10 +21,8 @@ cd ..
 
 git clone https://github.com/jmrio/uk-intl-kb
 cd uk-intl-kb
-sudo -s
-cat uk-intl-kb >> /usr/share/X11/xkb/symbols/gb
-mv evdev.xml /usr/share/X11/xkb/rules/evdev.xml
-exit
+sudo cat uk-intl-kb >> /usr/share/X11/xkb/symbols/gb
+cd ..
 
 curl -L https://github.com/ISmellACommie/Arch-Install-Scripts/releases/download/1.0/WindowsFonts.zip > WindowsFonts.zip
 mkdir WindowsFonts
