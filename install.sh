@@ -27,29 +27,29 @@ pacman -Syu --needed base-devel fish networkmanager bluez bluez-utils efibootmgr
 systemctl enable NetworkManager.service bluetooth.service
 
 ## Nvidia drivers
-# pacman -S nvidia nvidia-utils lib32-nvidia-utils nvidia-settings
+# pacman -S --noconfirm nvidia nvidia-utils lib32-nvidia-utils nvidia-settings
 
 ## Utility programs
-# pacman -S firefox libreoffice gimp discord cups hplip piper 
+# pacman -S --noconfirm firefox libreoffice gimp discord cups hplip piper 
 # systemctl enable cups.socket
 
 ## Programming
-# pacman -S code dotnet-runtime dotnet-sdk dotnet-hosts dotnet-targeting-pack
+# pacman -S --noconfirm code dotnet-runtime dotnet-sdk dotnet-hosts dotnet-targeting-pack
 
 ## Theming
-# pacman -S papirus-icon-theme kvantum-qt5
+# pacman -S --noconfirm papirus-icon-theme kvantum-qt5
 
 ## Plasma dekstop
-# pacman -S xorg-server sddm plasma kde-applications packagekit-qt5 libdbusmenu-glib appmenu-gtk-module latte-dock firewalld
+# pacman -S --noconfirm xorg-server sddm plasma kde-applications packagekit-qt5 libdbusmenu-glib appmenu-gtk-module latte-dock firewalld
 # systemctl enable sddm.service firewalld.service
 
 ## Game-related software
-# pacman -S steam lutris dosbox
+# pacman -S --noconfirm steam lutris dosbox
 
 ## For VirtualBox
-# pacman -S virtualbox-guest-utils xf86-video-vmware
+# pacman -S --noconfirm virtualbox-guest-utils xf86-video-vmware
 # systemctl enable vboxservice
 
 ## For VMware
-# pacman -S open-vm-tools gtkmm3 xf86-video-vmware
+# pacman -S --noconfirm open-vm-tools gtkmm3 xf86-video-vmware
 # systemctl enable vmtoolsd.service vmware-vmblock-fuse.service
