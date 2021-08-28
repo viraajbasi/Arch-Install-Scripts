@@ -32,6 +32,8 @@ sudo mv WindowsFonts /usr/share/fonts
 chmod 644 /usr/share/fonts/WindowsFonts/*
 fc-cache --force
 
-yay -S --needed minigalaxy itch openrgb ttf-google-sans code-features code-icons code-marketplace
-
+yay -S --needed --noconfirm minigalaxy itch openrgb ttf-google-sans code-features code-icons code-marketplace
+## If gnome is used instead of plasma
+## comment the last line
+# yay -S --needed --noconfirm chrome-gnome-shell yaru-gtk-theme yaru-gnome-shell-theme-git gnome-shell-extension-dash-to-dock-git
 echo -e "gtk-modules=\"appmenu-gtk-module\"" | tee -a ~/.gtkrc-2.0 ~/.config/gtk-3.0/settings.ini

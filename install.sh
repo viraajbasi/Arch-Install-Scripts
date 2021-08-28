@@ -21,9 +21,9 @@ useradd -mG wheel viraaj
 echo "viraaj:password" | chpasswd
 
 sed -i "93,94s/#//;37s/#//" /etc/pacman.conf
-pacman -Syu --needed --noconfirm base-devel fish networkmanager bluez bluez-utils efibootmgr dosfstools mtools ntfs-3g xdg-user-dirs pipewire pipewire-pulse pipewire-jack pipewire-alsa htop neofetch ttf-font-awesome noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra unzip
+pacman -Syu --needed --noconfirm base-devel fish networkmanager bluez bluez-utils efibootmgr dosfstools mtools ntfs-3g xdg-user-dirs pipewire pipewire-pulse pipewire-jack pipewire-alsa htop neofetch ttf-font-awesome noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra unzip firewalld
 
-systemctl enable NetworkManager.service bluetooth.service
+systemctl enable NetworkManager.service bluetooth.service firewalld.service
 
 ## Nvidia drivers
 # pacman -S --noconfirm nvidia nvidia-utils lib32-nvidia-utils nvidia-settings
@@ -38,9 +38,13 @@ systemctl enable NetworkManager.service bluetooth.service
 ## Theming
 # pacman -S --noconfirm papirus-icon-theme kvantum-qt5
 
-## Plasma dekstop
-# pacman -S --noconfirm xorg-server sddm plasma kde-applications packagekit-qt5 libdbusmenu-glib appmenu-gtk-module latte-dock firewalld
-# systemctl enable sddm.service firewalld.service
+## Plasma desktop
+# pacman -S --noconfirm xorg-server sddm plasma kde-applications packagekit-qt5 libdbusmenu-glib appmenu-gtk-module latte-dock
+# systemctl enable sddm.service
+
+## Gnome desktop
+# pacman -S --noconfirm xorg-server gdm gnome gnome-extra gnome-tweaks qt5ct
+# systemctl enable gdm.service
 
 ## Game-related software
 # pacman -S --noconfirm steam lutris dosbox
