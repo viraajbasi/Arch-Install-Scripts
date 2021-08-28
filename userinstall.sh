@@ -21,7 +21,7 @@ cd ..
 
 yay -S --needed --noconfirm minigalaxy itch openrgb ttf-google-sans code-features code-icons code-marketplace
 ## If gnome is used instead of plasma
-## comment the last line
+## comment the lines pertaining to appmenu-gtk-module
 # yay -S --needed --noconfirm chrome-gnome-shell yaru-gtk-theme yaru-gnome-shell-theme-git gnome-shell-extension-dash-to-dock-git
 
 mkdir ~/.config/gtk-3.0
