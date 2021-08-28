@@ -21,7 +21,7 @@ useradd -mG wheel viraaj
 echo "viraaj:password" | chpasswd
 
 sed -i "93,94s/#//;37s/#//" /etc/pacman.conf
-pacman -Syu --needed --noconfirm base-devel fish networkmanager bluez bluez-utils efibootmgr dosfstools mtools ntfs-3g xdg-user-dirs pipewire pipewire-pulse pipewire-jack pipewire-alsa htop neofetch ttf-font-awesome noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra unzip firewalld openssh
+pacman -Syu --needed --noconfirm base-devel fish networkmanager bluez bluez-utils efibootmgr dosfstools mtools ntfs-3g xdg-user-dirs pipewire pipewire-pulse pipewire-jack pipewire-alsa htop neofetch ttf-font-awesome noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra p7zip firewalld openssh
 
 systemctl enable NetworkManager.service bluetooth.service firewalld.service sshd.service
 
