@@ -5,7 +5,7 @@ hwclock --systohc
 
 sed -i "160s/#//;177s/#//" /etc/locale.gen
 locale-gen
-echo "LANG=en_GB.UTF-8" >> /etc/locale.gen
+echo "LANG=en_GB.UTF-8" >> /etc/locale.conf
 echo "KEYMAP=uk" >> /etc/vconsole.conf
 
 echo "arch" >> /etc/hostname
