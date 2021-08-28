@@ -1,10 +1,5 @@
 #!/bin/bash
 
-curl -L https://get.oh-my.fish > install
-fish install --path=~/.local/share/omf --config=~/.config/omf
-# omf install chain
-# omf theme chain
-exit
 echo "set fish_greeting" >> ~/.config/fish/config.fish
 
 sudo mv evdev.xml /usr/share/X11/xkb/rules/evdev.xml
