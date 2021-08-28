@@ -9,15 +9,13 @@ echo -e "syntax on\nset smartindent\nset nu\nset nowrap\nset smartcase\nset incs
 
 xdg-user-dirs-update
 
-git clone https://aur.archlinux.org/yay
-cd yay
+git clone https://aur.archlinux.org/yay ~/yay
+cd ~/yay
 makepkg -si --noconfirm
-cd ..
 
-git clone https://github.com/jmrio/uk-intl-kb
-cd uk-intl-kb
+git clone https://github.com/jmrio/uk-intl-kb ~/ukkb
+cd ~/ukkb
 sudo cat uk-intl-kb >> /usr/share/X11/xkb/symbols/gb
-cd ..
 
 yay -S --needed --noconfirm minigalaxy itch openrgb ttf-google-sans code-features code-icons code-marketplace
 ## If gnome is used instead of plasma
