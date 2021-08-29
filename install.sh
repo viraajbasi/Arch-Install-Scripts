@@ -29,7 +29,7 @@ systemctl enable NetworkManager.service bluetooth.service firewalld.service sshd
 # pacman -S --noconfirm nvidia nvidia-utils lib32-nvidia-utils nvidia-settings
 
 ## Utility programs
-# pacman -S --noconfirm firefox libreoffice gimp discord cups hplip piper 
+# pacman -S --noconfirm firefox chromium libreoffice gimp discord cups hplip piper 
 # systemctl enable cups.socket
 
 ## Programming
