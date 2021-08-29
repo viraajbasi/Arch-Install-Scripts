@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo "set fish_greeting" >> ~/.config/fish/config.fish
-
 sudo mv evdev.xml /usr/share/X11/xkb/rules/evdev.xml
 
 mkdir -p ~/.config/nvim
