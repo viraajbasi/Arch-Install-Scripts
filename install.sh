@@ -29,7 +29,7 @@ systemctl enable NetworkManager.service bluetooth.service firewalld.service sshd
 # pacman -S --noconfirm nvidia nvidia-utils lib32-nvidia-utils nvidia-settings
 
 ## Utility programs
-# pacman -S --noconfirm firefox chromium libreoffice gimp discord cups hplip piper 
+# pacman -S --noconfirm firefox chromium libreoffice gimp discord cups hplip piper
 # systemctl enable cups.socket
 
 ## Programming
@@ -56,5 +56,9 @@ systemctl enable NetworkManager.service bluetooth.service firewalld.service sshd
 ## For VMware
 # pacman -S --noconfirm open-vm-tools gtkmm3 xf86-video-vmware
 # systemctl enable vmtoolsd.service vmware-vmblock-fuse.service
+
+## For Hyper-V
+# pacman -S hyperv
+# systemctl enable hv_fcopy_daemon.service hv_kvp_daemon.service hv_vss_daemon.service
 
 chsh -s /bin/zsh viraaj
