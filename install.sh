@@ -34,11 +34,11 @@ pacman -Syu --needed --noconfirm base-devel zsh grml-zsh-config networkmanager b
 systemctl enable NetworkManager.service bluetooth.service firewalld.service sshd.service 
 
 ## Nvidia drivers
-# pacman -S --noconfirm nvidia nvidia-utils lib32-nvidia-utils nvidia-settings
+# pacman -S --noconfirm nvidia-dkms nvidia-utils nvidia-settings lib32-nvidia-utils opencl-nvidia lib32-opencl-nvida libglvnd lib32-libglvnd 
 # sed -i "s/MODULES=()/MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)/" /etc/mkinitcpio.conf
 # echo -e "options\troot=PARTUUID=$(blkid -s PARTUUID -o value $ROOTPART) rw nvidia-drm.modeset=1"
 # mkdir -p /etc/pacman.d/hooks
-# echo -e "[Trigger]\nOperation=Install\nOperation=Upgrade\nOperation=Remove\nType=Package\nTarget=nvidia\nTarget=linux\n\n[Action]\nDescription=Update Nvidia module in initcpio\nDepends=mkinitcpio\nWhen=PostTransaction\nNeedsTarget\nExec=/bin/sh -c 'while read -r trg; do case $trg in linux) exit 0; esac; done; /usr/bin/mkinitcpio -p'" >> /etc/pacman.d/hooks/nvidia
+# echo -e "[Trigger]\nOperation=Install\nOperation=Upgrade\nOperation=Remove\nType=Package\nTarget=nvidia\n\n[Action]\nDepends=mkinitcpio\nWhen=PostTransaction\nExec=/usr/bin/mkinitcpio -P" >> /etc/pacman.d/hooks/nvidia
 
 ## Utility programs
 # pacman -S --noconfirm firefox chromium libreoffice gimp discord cups hplip piper
