@@ -18,3 +18,5 @@ yay -S --needed --noconfirm minigalaxy itch minecraft-launcher openrgb ttf-googl
 mkdir ~/.config/gtk-3.0
 echo -e "gtk-modules=\"appmenu-gtk-module\"" >> ~/.gtkrc-2.0 
 echo -e "[Settings]\ngtk-modules=\"appmenu-gtk-module\"" >> ~/.config/gtk-3.0/settings.ini
+
+rm -rf ~/gitrepos
