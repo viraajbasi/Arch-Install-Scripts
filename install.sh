@@ -29,48 +29,44 @@ useradd -mG wheel viraaj
 echo "viraaj:$USERPASSWD" | chpasswd
 
 sed -i "93,94s/#//;37s/#//" /etc/pacman.conf
-pacman -Syu --needed --noconfirm base-devel zsh grml-zsh-config networkmanager bluez bluez-utils efibootmgr dosfstools mtools ntfs-3g xdg-user-dirs pipewire pipewire-pulse pipewire-jack pipewire-alsa htop neofetch ttf-font-awesome noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra p7zip firewalld openssh
+pacman -Syu --needed --noconfirm base-devel bash-completion networkmanager efibootmgr dosfstools mtools ntfs-3g
 
-systemctl enable NetworkManager.service bluetooth.service firewalld.service sshd.service 
+systemctl enable NetworkManager.service
+
+## Bluetooth
+# pacman -S --needed --noconfirm bluez bluez-utils
+# systemctl enable bluetooth.service
+
+## OpenSSH
+# pacman -S --needed --noconfirm openssh
+# systemctl enable sshd.service
 
 ## Nvidia drivers
-# pacman -S --noconfirm nvidia-dkms nvidia-utils nvidia-settings lib32-nvidia-utils opencl-nvidia lib32-opencl-nvida libglvnd lib32-libglvnd 
+# pacman -S --needed --noconfirm nvidia-dkms nvidia-utils nvidia-settings lib32-nvidia-utils opencl-nvidia lib32-opencl-nvida libglvnd lib32-libglvnd 
 # sed -i "s/MODULES=()/MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)/" /etc/mkinitcpio.conf
-# echo -e "options\troot=PARTUUID=$(blkid -s PARTUUID -o value $ROOTPART) rw nvidia-drm.modeset=1"
+# echo -e "options\troot=PARTUUID=$(blkid -s PARTUUID -o value $ROOTPART) rw nvidia-drm.modeset=1" >> /boot/loader/entries/arch.conf
 # mkdir -p /etc/pacman.d/hooks
 # echo -e "[Trigger]\nOperation=Install\nOperation=Upgrade\nOperation=Remove\nType=Package\nTarget=nvidia\n\n[Action]\nDepends=mkinitcpio\nWhen=PostTransaction\nExec=/usr/bin/mkinitcpio -P" >> /etc/pacman.d/hooks/nvidia
 
-## Utility programs
-# pacman -S --noconfirm firefox chromium libreoffice gimp discord cups hplip piper
+## Desktop applications
+# pacman -S --needed --noconfirm konsole firefox thunderbird dolphin dolphin-plugins ark p7zip kate vlc gwenview okular libreoffice gimp discord cups hplip piper gparted kamera code steam lutris dosbox papirus-icon-theme kvantum-qt5 htop neofetch
 # systemctl enable cups.socket
 
 ## Programming
-# pacman -S --noconfirm code dotnet-runtime dotnet-sdk dotnet-hosts dotnet-targeting-pack
-
-## Theming
-# pacman -S --noconfirm papirus-icon-theme kvantum-qt5
+# pacman -S --needed --noconfirm dotnet-runtime dotnet-sdk dotnet-hosts dotnet-targeting-pack python
 
 ## Plasma desktop
-# pacman -S --noconfirm xorg-server sddm plasma kde-applications packagekit-qt5 libdbusmenu-glib appmenu-gtk-module latte-dock
-# systemctl enable sddm.service
-
-## Gnome desktop
-# pacman -S --noconfirm xorg-server gdm gnome gnome-extra gnome-tweaks qt5ct
-# systemctl enable gdm.service
-
-## Game-related software
-# pacman -S --noconfirm steam lutris dosbox
+# pacman -S --needed --noconfirm xorg-server sddm plasma packagekit-qt5 libdbusmenu-glib appmenu-gtk-module latte-dock pipewire pipewire-pulse pipewire-jack pipewire-alsa firewalld
+# systemctl enable sddm.service firewalld.service
 
 ## For VirtualBox
-# pacman -S --noconfirm virtualbox-guest-utils xf86-video-vmware
-# systemctl enable vboxservice
+# pacman -S --needed --noconfirm virtualbox-guest-utils xf86-video-vmware
+# systemctl enable vboxservice.service
 
 ## For VMware
-# pacman -S --noconfirm open-vm-tools gtkmm3 xf86-video-vmware
+# pacman -S --needed --noconfirm open-vm-tools gtkmm3 xf86-video-vmware
 # systemctl enable vmtoolsd.service vmware-vmblock-fuse.service
 
 ## For Hyper-V
-# pacman -S hyperv
+# pacman -S --needed --noconfirm hyperv
 # systemctl enable hv_fcopy_daemon.service hv_kvp_daemon.service hv_vss_daemon.service
-
-chsh -s /bin/zsh viraaj
