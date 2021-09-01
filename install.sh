@@ -51,7 +51,10 @@ systemctl enable NetworkManager.service
 # echo -e "[Trigger]\nOperation=Install\nOperation=Upgrade\nOperation=Remove\nType=Package\nTarget=nvidia\n\n[Action]\nDepends=mkinitcpio\nWhen=PostTransaction\nExec=/usr/bin/mkinitcpio -P" >> /etc/pacman.d/hooks/nvidia
 
 ## Desktop applications
-# pacman -S --needed --noconfirm konsole firefox thunderbird dolphin dolphin-plugins ark p7zip kate vlc gwenview okular libreoffice gimp discord cups hplip piper gparted code steam lutris dosbox papirus-icon-theme kvantum-qt5 htop neofetch
+# pacman -S --needed --noconfirm konsole firefox thunderbird dolphin dolphin-plugins ark p7zip kate vlc gwenview okular libreoffice gimp discord piper gparted code steam lutris dosbox papirus-icon-theme kvantum-qt5 htop neofetch
+
+### Printing tools
+# pacman -S cups hplip
 # systemctl enable cups.socket
 
 ## Programming
@@ -64,7 +67,6 @@ systemctl enable NetworkManager.service
 ## Virtualisation using qemu and libvirt
 # pacman -S --needed --noconfirm qemu libvirt iptables-nft virt-manager virsh virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat libguestfs
 # systemctl enable libvirtd.service
-# newgrp libvirt
 # usermod -aG libvirt $USERNAME
 
 ## For VirtualBox
