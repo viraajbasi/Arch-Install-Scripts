@@ -78,5 +78,5 @@ systemctl enable NetworkManager.service
 # systemctl enable vmtoolsd.service vmware-vmblock-fuse.service
 
 ## For Hyper-V
-# pacman -S --needed --noconfirm hyperv
+# pacman -S --needed --noconfirm hyperv xf86-video-fbdev
 # systemctl enable hv_fcopy_daemon.service hv_kvp_daemon.service hv_vss_daemon.service
