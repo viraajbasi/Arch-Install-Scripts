@@ -3,7 +3,7 @@
 sudo mv evdev.xml /usr/share/X11/xkb/rules/evdev.xml
 
 mkdir -p ~/.config/nvim
-echo -e "syntax on\nset smartindent\nset nu\nset smartcase\nset incsearch\nset tabstop=4\nset noerrorbells" >> ~/.config/nvim/init.vim
+echo -e "syntax on\nset smartindent\nset nu\nset smartcase\nset incsearch\nset tabstop=4\nset noerrorbells\ncolorscheme pablo" >> ~/.config/nvim/init.vim
 
 git clone https://aur.archlinux.org/yay ~/gitrepos/yay
 cd ~/gitrepos/yay
