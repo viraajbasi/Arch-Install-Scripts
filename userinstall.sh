@@ -19,3 +19,7 @@ echo -e "gtk-modules=\"appmenu-gtk-module\"" >> ~/.gtkrc-2.0
 echo -e "[Settings]\ngtk-modules=\"appmenu-gtk-module\"" >> ~/.config/gtk-3.0/settings.ini
 
 rm -rf ~/gitrepos
+
+echo "Install complete, the computer will reboot in 5 seconds"
+sleep 5
+reboot
