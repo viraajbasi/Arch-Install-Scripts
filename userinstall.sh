@@ -1,9 +1,8 @@
 #!/bin/bash
 
 sudo mv evdev.xml /usr/share/X11/xkb/rules/evdev.xml
-
 mkdir -p ~/.config/nvim
-echo -e "syntax on\nset smartindent\nset nu\nset smartcase\nset incsearch\nset tabstop=4\nset noerrorbells\ncolorscheme pablo" >> ~/.config/nvim/init.vim
+echo -e "syntax on\nset smartindent\nset nu\nset smartcase\nset incsearch\nset hlsearch\nset tabstop=4\nset shiftwidth=4\nset noerrorbells\ncolorscheme desert" >> ~/.config/nvim/init.vim
 
 git clone https://aur.archlinux.org/yay ~/gitrepos/yay
 cd ~/gitrepos/yay
@@ -16,7 +15,7 @@ echo 'cat uk-intl-kb >> /usr/share/X11/xkb/symbols/gb' | sudo -s
 yay -S --needed --noconfirm minigalaxy itch minecraft-launcher openrgb ttf-google-sans code-features code-icons code-marketplace unityhub
 
 mkdir ~/.config/gtk-3.0
-echo -e "gtk-modules=\"appmenu-gtk-module\"" >> ~/.gtkrc-2.0 
+echo -e "gtk-modules=\"appmenu-gtk-module\"" >> ~/.gtkrc-2.0
 echo -e "[Settings]\ngtk-modules=\"appmenu-gtk-module\"" >> ~/.config/gtk-3.0/settings.ini
 
 rm -rf ~/gitrepos
