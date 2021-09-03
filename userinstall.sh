@@ -1,5 +1,7 @@
 #!/bin/bash
 
+xdg-user-dirs-update
+
 sudo mv evdev.xml /usr/share/X11/xkb/rules/evdev.xml
 mkdir -p ~/.config/nvim
 echo -e "syntax on\nset smartindent\nset nu\nset smartcase\nset incsearch\nset hlsearch\nset tabstop=4\nset shiftwidth=4\nset noerrorbells\ncolorscheme desert" >> ~/.config/nvim/init.vim

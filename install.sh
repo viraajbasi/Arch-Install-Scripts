@@ -31,7 +31,7 @@ useradd -mG wheel $USERNAME
 echo "$USERNAME:$USERPASSWD" | chpasswd
 
 sed -i "93,94s/#//;37s/#//" /etc/pacman.conf
-pacman -Syu --needed --noconfirm base-devel bash-completion networkmanager efibootmgr dosfstools mtools ntfs-3g
+pacman -Syu --needed --noconfirm base-devel bash-completion networkmanager efibootmgr dosfstools mtools ntfs-3g xdg-user-dirs
 
 systemctl enable NetworkManager.service
 
@@ -66,7 +66,7 @@ systemctl enable NetworkManager.service
 # systemctl enable sddm.service 
 
 ## Gnome desktop and applications
-# pacman -S --needed --noconfirm xorg-server gdm gnome-shell gnome-tweaks dconf-editor nautilus gnome-terminal evince eog eog-plugins qt5ct
+# pacman -S --needed --noconfirm xorg-server gdm gnome-shell gnome-tweaks dconf-editor nautilus gnome-terminal evince eog eog-plugins qt5ct gnome-control-center gnome-backgrounds
 # systemctl enable gdm.service
 # echo "export QT_QPA_PLATFORMTHEME=qt5ct" | tee -a ~/.profile ~/.bash_profile
 
