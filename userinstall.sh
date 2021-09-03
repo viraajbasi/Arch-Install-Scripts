@@ -16,7 +16,7 @@ echo 'cat uk-intl-kb >> /usr/share/X11/xkb/symbols/gb' | sudo -s
 
 ## For Hyper-V
 # git clone https://github.com/Microsoft/linux-vm-tools ~/gitrepos/linux-vm-tools
-# cd ~/gitrepos/linux-vm-tools
+# cd ~/gitrepos/linux-vm-tools/arch
 # ./makepkg.sh
 # ./install-config.sh
 
