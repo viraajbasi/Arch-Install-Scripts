@@ -14,12 +14,6 @@ git clone https://github.com/jmrio/uk-intl-kb ~/gitrepos/ukkb
 cd ~/gitrepos/ukkb
 echo 'cat uk-intl-kb >> /usr/share/X11/xkb/symbols/gb' | sudo -s
 
-## For Hyper-V
-# git clone https://github.com/Microsoft/linux-vm-tools ~/gitrepos/linux-vm-tools
-# cd ~/gitrepos/linux-vm-tools/arch
-# ./makepkg.sh
-# ./install-config.sh
-
 yay -S --needed --noconfirm minigalaxy itch minecraft-launcher openrgb ttf-google-sans code-features code-icons code-marketplace unityhub
 
 ## If gnome is installed

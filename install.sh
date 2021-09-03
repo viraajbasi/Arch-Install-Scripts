@@ -83,8 +83,4 @@ systemctl enable NetworkManager.service
 # pacman -S --needed --noconfirm open-vm-tools gtkmm3 xf86-video-vmware
 # systemctl enable vmtoolsd.service vmware-vmblock-fuse.service
 
-## For Hyper-V
-# pacman -S --needed --noconfirm hyperv xf86-video-fbdev
-# systemctl enable hv_fcopy_daemon.service hv_kvp_daemon.service hv_vss_daemon.service
-
 echo "Please reboot and log into $USERNAME."
