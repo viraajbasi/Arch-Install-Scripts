@@ -51,7 +51,8 @@ systemctl enable NetworkManager.service
 # echo -e "[Trigger]\nOperation=Install\nOperation=Upgrade\nOperation=Remove\nType=Package\nTarget=nvidia\n\n[Action]\nDepends=mkinitcpio\nWhen=PostTransaction\nExec=/usr/bin/mkinitcpio -P" >> /etc/pacman.d/hooks/nvidia
 
 ## Desktop applications
-# pacman -S --needed --noconfirm konsole firefox thunderbird dolphin dolphin-plugins ark p7zip kate vlc gwenview okular libreoffice gimp discord piper gparted code steam lutris dosbox papirus-icon-theme kvantum-qt5 htop neofetch
+# pacman -S --needed --noconfirm firefox thunderbird p7zip vlc libreoffice gimp discord piper gparted code steam lutris dosbox papirus-icon-theme kvantum-qt5 htop neofetch firewalld
+# systemctl enable firewalld.service
 
 ### Printing tools
 # pacman -S cups hplip
@@ -60,9 +61,14 @@ systemctl enable NetworkManager.service
 ## Programming
 # pacman -S --needed --noconfirm dotnet-runtime dotnet-sdk dotnet-hosts dotnet-targeting-pack python
 
-## Plasma desktop
-# pacman -S --needed --noconfirm xorg-server sddm plasma packagekit-qt5 libdbusmenu-glib appmenu-gtk-module latte-dock pipewire pipewire-pulse pipewire-jack pipewire-alsa firewalld
-# systemctl enable sddm.service firewalld.service
+## Plasma desktop and applications
+# pacman -S --needed --noconfirm xorg-server sddm plasma packagekit-qt5 libdbusmenu-glib appmenu-gtk-module pipewire pipewire-pulse pipewire-jack pipewire-alsa konsole dolphin dolphin-plugins ark kate gwenview okular
+# systemctl enable sddm.service 
+
+## Gnome desktop and applications
+# pacman -S --needed --noconfirm xorg-server gdm gnome-shell gnome-tweaks dconf-editor nautilus gedit gnome-terminal evince eog eog-plugins qt5ct
+# systemctl enable gdm.service
+# echo "export QT_QPA_PLATFORMTHEME=qt5ct" | tee -a ~/.profile ~/.bash_profile
 
 ## Virtualisation using qemu and libvirt
 # pacman -S --needed --noconfirm qemu libvirt iptables-nft virt-manager virsh virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat libguestfs
