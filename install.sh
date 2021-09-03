@@ -87,7 +87,4 @@ systemctl enable NetworkManager.service
 # pacman -S --needed --noconfirm hyperv xf86-video-fbdev
 # systemctl enable hv_fcopy_daemon.service hv_kvp_daemon.service hv_vss_daemon.service
 
-echo "Install complete, please wait 5 seconds for the computer to reboot."
-echo "Please log into $USERNAME once the computer reboots."
-sleep 5
-reboot
+echo "Please reboot and log into $USERNAME."
