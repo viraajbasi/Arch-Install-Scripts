@@ -62,11 +62,11 @@ systemctl enable NetworkManager.service
 # pacman -S --needed --noconfirm dotnet-runtime dotnet-sdk dotnet-hosts dotnet-targeting-pack python
 
 ## Plasma desktop and applications
-# pacman -S --needed --noconfirm xorg-server sddm plasma packagekit-qt5 libdbusmenu-glib appmenu-gtk-module pipewire pipewire-pulse pipewire-jack pipewire-alsa konsole dolphin dolphin-plugins ark kate gwenview okular
+# pacman -S --needed --noconfirm xorg-server sddm plasma packagekit-qt5 libdbusmenu-glib appmenu-gtk-module pipewire pipewire-pulse pipewire-jack pipewire-alsa konsole dolphin dolphin-plugins ark gwenview okular
 # systemctl enable sddm.service 
 
 ## Gnome desktop and applications
-# pacman -S --needed --noconfirm xorg-server gdm gnome-shell gnome-tweaks dconf-editor nautilus gedit gnome-terminal evince eog eog-plugins qt5ct
+# pacman -S --needed --noconfirm xorg-server gdm gnome-shell gnome-tweaks dconf-editor nautilus gnome-terminal evince eog eog-plugins qt5ct
 # systemctl enable gdm.service
 # echo "export QT_QPA_PLATFORMTHEME=qt5ct" | tee -a ~/.profile ~/.bash_profile
 
