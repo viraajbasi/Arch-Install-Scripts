@@ -31,7 +31,7 @@ useradd -mG wheel $USERNAME
 echo "$USERNAME:$USERPASSWD" | chpasswd
 
 sed -i "93,94s/#//;37s/#//" /etc/pacman.conf
-pacman -Syu --needed --noconfirm base-devel bash-completion networkmanager efibootmgr dosfstools mtools ntfs-3g xdg-user-dirs
+pacman -Syu --needed --noconfirm base-devel bash-completion networkmanager efibootmgr dosfstools mtools ntfs-3g xdg-user-dirs ttf-cascadia-code noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-liberation
 
 systemctl enable NetworkManager.service
 
