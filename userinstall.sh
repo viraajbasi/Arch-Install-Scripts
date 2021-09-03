@@ -14,6 +14,9 @@ echo 'cat uk-intl-kb >> /usr/share/X11/xkb/symbols/gb' | sudo -s
 
 yay -S --needed --noconfirm minigalaxy itch minecraft-launcher openrgb ttf-google-sans code-features code-icons code-marketplace unityhub
 
+## If gnome is installed
+# yay -S --needed --noconfirm chrome-gnome-shell
+
 ## If plasma is installed
 # mkdir ~/.config/gtk-3.0
 # echo -e "gtk-modules=\"appmenu-gtk-module\"" >> ~/.gtkrc-2.0
