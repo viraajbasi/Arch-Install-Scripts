@@ -18,6 +18,7 @@ yay -S --needed --noconfirm minigalaxy itch minecraft-launcher openrgb ttf-googl
 
 ## If gnome is installed
 # yay -S --needed --noconfirm chrome-gnome-shell gnome-shell-extension-dash-to-dock
+# echo "export QT_QPA_PLATFORMTHEME=qt5ct" | tee -a ~/.profile ~/.bash_profile
 
 ## If plasma is installed
 # mkdir ~/.config/gtk-3.0

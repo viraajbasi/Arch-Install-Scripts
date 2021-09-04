@@ -68,7 +68,6 @@ systemctl enable NetworkManager.service
 ## Gnome desktop and applications
 # pacman -S --needed --noconfirm xorg-server gdm gnome-shell gnome-tweaks dconf-editor nautilus gnome-terminal evince eog eog-plugins qt5ct gnome-control-center gnome-backgrounds
 # systemctl enable gdm.service
-# echo "export QT_QPA_PLATFORMTHEME=qt5ct" | tee -a ~/.profile ~/.bash_profile
 
 ## Virtualisation using qemu and libvirt
 # pacman -S --needed --noconfirm qemu libvirt iptables-nft virt-manager virsh virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat libguestfs
