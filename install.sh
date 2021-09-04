@@ -48,7 +48,7 @@ systemctl enable NetworkManager.service
 # systemctl enable sshd.service
 
 ## Nvidia drivers
-# pacman -S --needed --noconfirm nvidia-dkms nvidia-utils nvidia-settings lib32-nvidia-utils opencl-nvidia lib32-opencl-nvida libglvnd lib32-libglvnd 
+# pacman -S --needed --noconfirm nvidia-dkms nvidia-utils nvidia-settings lib32-nvidia-utils opencl-nvidia lib32-opencl-nvida libglvnd lib32-libglvnd
 # sed -i "s/MODULES=()/MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)/" /etc/mkinitcpio.conf
 # echo -e "options\troot=PARTUUID=$(blkid -s PARTUUID -o value $ROOTPART) rw nvidia-drm.modeset=1" >> /boot/loader/entries/arch.conf
 # mkdir -p /etc/pacman.d/hooks
@@ -70,7 +70,7 @@ systemctl enable NetworkManager.service
 
 ## Plasma desktop and applications
 # pacman -S --needed --noconfirm xorg-server sddm plasma packagekit-qt5 libdbusmenu-glib appmenu-gtk-module pipewire pipewire-pulse pipewire-jack pipewire-alsa konsole dolphin dolphin-plugins ark gwenview okular kate
-# systemctl enable sddm.service 
+# systemctl enable sddm.service
 
 ## Gnome desktop and applications
 # pacman -S --needed --noconfirm xorg-server gdm gnome-shell gnome-tweaks dconf-editor nautilus gnome-terminal evince eog eog-plugins qt5ct gnome-control-center gnome-backgrounds gedit
