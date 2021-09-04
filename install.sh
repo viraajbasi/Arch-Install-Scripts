@@ -1,38 +1,42 @@
 #!/bin/bash
 
 ## Variables
-# Change these to match system
 ROOTPART="/dev/sda2"
 HOSTNAME="arch"
 ROOTPASSWD="password"
 USERNAME="viraaj"
 USERPASSWD="password"
 
+## Set timezone and sync hardware clock
 ln -sf /usr/share/zoneinfo/Europe/London /etc/localtime
 hwclock --systohc
 
+## Set locale
 sed -i "160s/#//;177s/#//" /etc/locale.gen
 locale-gen
 echo "LANG=en_GB.UTF-8" >> /etc/locale.conf
 echo "KEYMAP=uk" >> /etc/vconsole.conf
 
+## Configure hostname and hosts file
 echo $HOSTNAME >> /etc/hostname
 echo -e "127.0.1.1\tlocalhost\n::1\t\tlocalhost\n127.0.1.1\t$HOSTNAME.localdomain\t$HOSTNAME" >> /etc/hosts
 
+## Install and configure bootloader
 bootctl --path=/boot install
 sed -i "s/default .*/default arch-*/" /boot/loader/loader.conf
 echo -e "title\tArch Linux\nlinux\t/vmlinuz-linux\ninitrd\t/amd-ucode.img\ninitrd\t/initramfs-linux.img" >> /boot/loader/entries/arch.conf
 ## Comment below if using NVIDIA
 echo -e "options\troot=PARTUUID=$(blkid -s PARTUUID -o value $ROOTPART) rw" >> /boot/loader/entries/arch.conf
 
+## Add and configure users
 echo "root:$ROOTPASSWD" | chpasswd
 sed -i "82s/# //" /etc/sudoers
 useradd -mG wheel $USERNAME
 echo "$USERNAME:$USERPASSWD" | chpasswd
 
+## Allow multilib installation, run full system upgrade, and install base packages
 sed -i "93,94s/#//;37s/#//" /etc/pacman.conf
 pacman -Syu --needed --noconfirm base-devel bash-completion networkmanager efibootmgr dosfstools mtools ntfs-3g xdg-user-dirs ttf-cascadia-code noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-liberation
-
 systemctl enable NetworkManager.service
 
 ## Bluetooth
@@ -51,7 +55,7 @@ systemctl enable NetworkManager.service
 # echo -e "[Trigger]\nOperation=Install\nOperation=Upgrade\nOperation=Remove\nType=Package\nTarget=nvidia\n\n[Action]\nDepends=mkinitcpio\nWhen=PostTransaction\nExec=/usr/bin/mkinitcpio -P" >> /etc/pacman.d/hooks/nvidia
 
 ## Desktop applications
-# pacman -S --needed --noconfirm firefox thunderbird p7zip vlc libreoffice gimp discord piper gparted steam lutris dosbox papirus-icon-theme kvantum-qt5 htop neofetch firewalld
+# pacman -S --needed --noconfirm firefox thunderbird p7zip vlc libreoffice discord piper gparted steam lutris dosbox papirus-icon-theme kvantum-qt5 htop neofetch firewalld
 # systemctl enable firewalld.service
 
 ## Device control
@@ -77,11 +81,11 @@ systemctl enable NetworkManager.service
 # systemctl enable libvirtd.service
 # usermod -aG libvirt $USERNAME
 
-## For VirtualBox
+## VirtualBox
 # pacman -S --needed --noconfirm virtualbox-guest-utils xf86-video-vmware
 # systemctl enable vboxservice.service
 
-## For VMware
+## VMWare
 # pacman -S --needed --noconfirm open-vm-tools gtkmm3 xf86-video-vmware
 # systemctl enable vmtoolsd.service vmware-vmblock-fuse.service
 
