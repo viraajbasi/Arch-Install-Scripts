@@ -31,7 +31,7 @@ rm -rf ~/gitrepos
 # yay -S --needed --noconfirm openrgb
 
 ## Fonts
-# yay -S --needed --noconfirm ttf-google-sans
+# yay -S --needed --noconfirm ttf-google-sans ttf-ms-win10-auto
 
 ## Gnome desktop applications and configuration for QT themes
 # yay -S --needed --noconfirm chrome-gnome-shell gnome-shell-extension-dash-to-dock
