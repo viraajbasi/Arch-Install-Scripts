@@ -14,13 +14,23 @@ git clone https://github.com/jmrio/uk-intl-kb ~/gitrepos/ukkb
 cd ~/gitrepos/ukkb
 echo 'cat uk-intl-kb >> /usr/share/X11/xkb/symbols/gb' | sudo -s
 
-yay -S --needed --noconfirm minigalaxy itch minecraft-launcher openrgb ttf-google-sans code-features code-icons code-marketplace unityhub
+## Desktop applications
+# yay -S --needed --noconfirm minigalaxy itch minecraft-launcher
 
-## If gnome is installed
+## Programming
+# yay -S --needed --noconfirm code-features code-icons code-marketplace unityhub
+
+## Device control
+# yay -S --needed --noconfirm openrgb
+
+## Fonts
+# yay -S --needed --noconfirm ttf-google-sans
+
+## Gnome desktop
 # yay -S --needed --noconfirm chrome-gnome-shell gnome-shell-extension-dash-to-dock
 # echo "export QT_QPA_PLATFORMTHEME=qt5ct" | tee -a ~/.profile ~/.bash_profile
 
-## If plasma is installed
+## Plasma desktop
 # mkdir ~/.config/gtk-3.0
 # echo -e "gtk-modules=\"appmenu-gtk-module\"" >> ~/.gtkrc-2.0
 # echo -e "[Settings]\ngtk-modules=\"appmenu-gtk-module\"" >> ~/.config/gtk-3.0/settings.ini

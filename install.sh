@@ -51,22 +51,25 @@ systemctl enable NetworkManager.service
 # echo -e "[Trigger]\nOperation=Install\nOperation=Upgrade\nOperation=Remove\nType=Package\nTarget=nvidia\n\n[Action]\nDepends=mkinitcpio\nWhen=PostTransaction\nExec=/usr/bin/mkinitcpio -P" >> /etc/pacman.d/hooks/nvidia
 
 ## Desktop applications
-# pacman -S --needed --noconfirm firefox thunderbird p7zip vlc libreoffice gimp discord piper gparted code steam lutris dosbox papirus-icon-theme kvantum-qt5 htop neofetch firewalld
+# pacman -S --needed --noconfirm firefox thunderbird p7zip vlc libreoffice gimp discord piper gparted steam lutris dosbox papirus-icon-theme kvantum-qt5 htop neofetch firewalld
 # systemctl enable firewalld.service
 
-### Printing tools
-# pacman -S cups hplip
+## Device control
+# pacman -S --needed --noconfirm piper
+
+## Printing tools
+# pacman -S --needed --noconfirm cups hplip
 # systemctl enable cups.socket
 
 ## Programming
-# pacman -S --needed --noconfirm dotnet-runtime dotnet-sdk dotnet-hosts dotnet-targeting-pack python
+# pacman -S --needed --noconfirm code dotnet-runtime dotnet-sdk dotnet-hosts dotnet-targeting-pack python
 
 ## Plasma desktop and applications
-# pacman -S --needed --noconfirm xorg-server sddm plasma packagekit-qt5 libdbusmenu-glib appmenu-gtk-module pipewire pipewire-pulse pipewire-jack pipewire-alsa konsole dolphin dolphin-plugins ark gwenview okular
+# pacman -S --needed --noconfirm xorg-server sddm plasma packagekit-qt5 libdbusmenu-glib appmenu-gtk-module pipewire pipewire-pulse pipewire-jack pipewire-alsa konsole dolphin dolphin-plugins ark gwenview okular kate
 # systemctl enable sddm.service 
 
 ## Gnome desktop and applications
-# pacman -S --needed --noconfirm xorg-server gdm gnome-shell gnome-tweaks dconf-editor nautilus gnome-terminal evince eog eog-plugins qt5ct gnome-control-center gnome-backgrounds
+# pacman -S --needed --noconfirm xorg-server gdm gnome-shell gnome-tweaks dconf-editor nautilus gnome-terminal evince eog eog-plugins qt5ct gnome-control-center gnome-backgrounds gedit
 # systemctl enable gdm.service
 
 ## Virtualisation using qemu and libvirt
