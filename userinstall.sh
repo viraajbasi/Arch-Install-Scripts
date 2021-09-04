@@ -50,13 +50,14 @@ rm -rf ~/gitrepos
 # yay -S --needed --noconfirm ttf-google-sans ttf-ms-win10-auto
 
 ## Gnome desktop applications, themes, and configuration for QT themes
-# yay -S --needed --noconfirm chrome-gnome-shell gnome-shell-extension-dash-to-dock arc-gtk-theme
+# yay -S --needed --noconfirm chrome-gnome-shell gnome-shell-extension-dash-to-dock arc-gtk-theme papirus-icon-theme
 # echo "export QT_QPA_PLATFORMTHEME=qt5ct" | tee -a ~/.profile ~/.bash_profile
 
 ## Qogir theme
 git clone
 
-## Plasma desktop configuration for the global menu
+## Plasma desktop themes, and configuration for the global menu
+# sudo pacman -S --needed --noconfirm papirus-icon-theme
 # mkdir ~/.config/gtk-3.0
 # echo -e "gtk-modules=\"appmenu-gtk-module\"" >> ~/.gtkrc-2.0
 # echo -e "[Settings]\ngtk-modules=\"appmenu-gtk-module\"" >> ~/.config/gtk-3.0/settings.ini
