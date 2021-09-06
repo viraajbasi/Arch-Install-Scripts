@@ -21,7 +21,7 @@ echo "KEYMAP=uk" >> /etc/vconsole.conf
 echo $HOSTNAME >> /etc/hostname
 echo -e "127.0.1.1\tlocalhost\n::1\t\tlocalhost\n127.0.1.1\t$HOSTNAME.localdomain\t$HOSTNAME" >> /etc/hosts
 
-## Install and configure bootloader
+## Install and configure bootloader (systemd-boot)
 bootctl --path=/boot install
 sed -i "s/default .*/default arch-*/" /boot/loader/loader.conf
 echo -e "title\tArch Linux\nlinux\t/vmlinuz-linux\ninitrd\t/amd-ucode.img\ninitrd\t/initramfs-linux.img" >> /boot/loader/entries/arch.conf
@@ -36,7 +36,7 @@ echo "$USERNAME:$USERPASSWD" | chpasswd
 
 ## Allow multilib installation, run full system upgrade, and install base packages
 sed -i "93,94s/#//;37s/#//" /etc/pacman.conf
-pacman -Syu --needed --noconfirm base-devel bash-completion networkmanager efibootmgr dosfstools mtools ntfs-3g xdg-user-dirs ttf-cascadia-code noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-liberation ubuntu-font-family
+pacman -Syu --needed --noconfirm base-devel bash-completion networkmanager efibootmgr dosfstools mtools ntfs-3g xdg-user-dirs ttf-cascadia-code noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-liberation ubuntu-font-family ttf-font-awesome
 systemctl enable NetworkManager.service
 
 ## Bluetooth
@@ -89,4 +89,4 @@ systemctl enable NetworkManager.service
 # pacman -S --needed --noconfirm open-vm-tools gtkmm3 xf86-video-vmware
 # systemctl enable vmtoolsd.service vmware-vmblock-fuse.service
 
-echo "Please reboot and log into $USERNAME."
+echo "Please reboot and log into the $USERNAME account."
