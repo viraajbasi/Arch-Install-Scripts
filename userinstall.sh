@@ -13,6 +13,9 @@ echo 'cat uk-intl-kb >> /usr/share/X11/xkb/symbols/gb' | sudo -s
 mkdir -p ~/.config/nvim
 echo -e "syntax on\nset smartindent\nset nu\nset smartcase\nset incsearch\nset hlsearch\nset tabstop=4\nset shiftwidth=4\nset noerrorbells\ncolorscheme desert" >> ~/.config/nvim/init.vim
 
+## Configure bash aliases
+echo -e "alias weather=\"curl wttr.in\"" >> ~/.bashrc
+
 ## Install yay
 git clone https://aur.archlinux.org/yay ~/gitrepos/yay
 cd ~/gitrepos/yay
