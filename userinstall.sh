@@ -31,11 +31,7 @@ makepkg -si --noconfirm
 # git clone https://github.com/vinceliuice/qogir-kde ~/gitrepos/qogir-kde
 # cd ~/gitrepos/qogir-kde
 # ./install.sh
-## Qogir-icons
-# git clone https://github.com/vinceliuice/qogir-icon-theme ~/gitrepos/qogir-icons
-# cd ~/gitrepos/qogir-icons
-# ./install.sh
-## Ensure that the correct theme is selected in kvantum when using kde
+## Ensure that the correct theme is selected in kvantum
 
 ## Remove ~/gitrepos
 rm -rf ~/gitrepos
@@ -44,7 +40,7 @@ rm -rf ~/gitrepos
 # sudo pacman -S --needed --noconfirm papirus-icon-theme
 
 ## Desktop applications
-# yay -S --needed --noconfirm minigalaxy itch minecraft-launcher
+# yay -S --needed --noconfirm minigalaxy itch minecraft-launcher appimagelauncher
 
 ## Programming
 # yay -S --needed --noconfirm code-features code-icons code-marketplace unityhub
@@ -54,10 +50,6 @@ rm -rf ~/gitrepos
 
 ## Fonts
 # yay -S --needed --noconfirm ttf-google-sans ttf-ms-win10-auto
-
-## Gnome desktop applications, themes, and configuration for QT themes
-# yay -S --needed --noconfirm chrome-gnome-shell gnome-shell-extension-dash-to-dock arc-gtk-theme
-# echo "export QT_QPA_PLATFORMTHEME=qt5ct" | tee -a ~/.profile ~/.bash_profile
 
 ## Plasma gtk configuration for the global menu
 # mkdir ~/.config/gtk-3.0

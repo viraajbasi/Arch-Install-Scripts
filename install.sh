@@ -36,12 +36,15 @@ echo "$USERNAME:$USERPASSWD" | chpasswd
 
 ## Allow multilib installation, run full system upgrade, and install base packages
 sed -i "93,94s/#//;37s/#//" /etc/pacman.conf
-pacman -Syu --needed --noconfirm base-devel bash-completion networkmanager efibootmgr dosfstools mtools ntfs-3g xdg-user-dirs ttf-cascadia-code noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-liberation ttf-ubuntu-font-family ttf-font-awesome
+pacman -Syu --needed --noconfirm base-devel bash-completion networkmanager efibootmgr dosfstools mtools ntfs-3g xdg-user-dirs
 systemctl enable NetworkManager.service
 
 ## Bluetooth
 # pacman -S --needed --noconfirm bluez bluez-utils
 # systemctl enable bluetooth.service
+
+## Pipewire
+# pacman -S --needed --noconfirm pipewire pipewire-pulse pipewire-jack pipewire-alsa
 
 ## OpenSSH
 # pacman -S --needed --noconfirm openssh
@@ -55,8 +58,15 @@ systemctl enable NetworkManager.service
 # echo -e "[Trigger]\nOperation=Install\nOperation=Upgrade\nOperation=Remove\nType=Package\nTarget=nvidia\n\n[Action]\nDepends=mkinitcpio\nWhen=PostTransaction\nExec=/usr/bin/mkinitcpio -P" >> /etc/pacman.d/hooks/nvidia
 
 ## Desktop applications
-# pacman -S --needed --noconfirm firefox thunderbird p7zip mpv libreoffice discord gimp gparted steam lutris dosbox kvantum-qt5 htop neofetch firewalld
+# pacman -S --needed --noconfirm alacritty firefox thunderbird ark p7zip mpv pcmanfm gwenview kate libreoffice discord gimp gparted steam lutris dosbox kvantum-qt5 htop neofetch firewalld
 # systemctl enable firewalld.service
+
+## Plasma desktop
+# pacman -S --needed --noconfirm xorg-server sddm plasma packagekit-qt5 libdbusmenu-glib appmenu-gtk-module
+# systemctl enable sddm.service
+
+## Fonts
+# pacman -S --needed --noconfirm ttf-cascadia-code noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-liberation ttf-ubuntu-font-family ttf-font-awesome
 
 ## Device control
 # pacman -S --needed --noconfirm piper
@@ -67,14 +77,6 @@ systemctl enable NetworkManager.service
 
 ## Programming
 # pacman -S --needed --noconfirm code dotnet-runtime dotnet-sdk dotnet-hosts dotnet-targeting-pack python
-
-## Plasma desktop and applications
-# pacman -S --needed --noconfirm xorg-server sddm plasma packagekit-qt5 libdbusmenu-glib appmenu-gtk-module pipewire pipewire-pulse pipewire-jack pipewire-alsa konsole dolphin dolphin-plugins ark gwenview okular kate
-# systemctl enable sddm.service
-
-## Gnome desktop and applications
-# pacman -S --needed --noconfirm xorg-server gdm gnome-shell gnome-tweaks dconf-editor nautilus gnome-terminal evince eog eog-plugins qt5ct gnome-control-center gnome-backgrounds gedit
-# systemctl enable gdm.service
 
 ## Virtualisation using qemu and libvirt
 # pacman -S --needed --noconfirm qemu libvirt iptables-nft virt-manager virsh virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat libguestfs
