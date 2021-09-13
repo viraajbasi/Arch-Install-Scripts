@@ -55,7 +55,7 @@ systemctl enable NetworkManager.service
 # echo -e "[Trigger]\nOperation=Install\nOperation=Upgrade\nOperation=Remove\nType=Package\nTarget=nvidia\n\n[Action]\nDepends=mkinitcpio\nWhen=PostTransaction\nExec=/usr/bin/mkinitcpio -P" >> /etc/pacman.d/hooks/nvidia
 
 ## Desktop applications
-# pacman -S --needed --noconfirm firefox thunderbird p7zip vlc libreoffice discord gimp gparted steam lutris dosbox kvantum-qt5 htop neofetch firewalld
+# pacman -S --needed --noconfirm firefox thunderbird p7zip mpv libreoffice discord gimp gparted steam lutris dosbox kvantum-qt5 htop neofetch firewalld
 # systemctl enable firewalld.service
 
 ## Device control
