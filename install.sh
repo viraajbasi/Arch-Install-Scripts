@@ -19,7 +19,7 @@ echo "KEYMAP=uk" >> /etc/vconsole.conf
 
 ## Configure hostname and hosts file
 echo $HOSTNAME >> /etc/hostname
-echo -e "127.0.1.1\tlocalhost\n::1\t\tlocalhost\n127.0.1.1\t$HOSTNAME.localdomain\t$HOSTNAME" >> /etc/hosts
+echo -e "127.0.0.1\tlocalhost\n::1\t\tlocalhost\n127.0.1.1\t$HOSTNAME.localdomain\t$HOSTNAME" >> /etc/hosts
 
 ## Install and configure bootloader (systemd-boot)
 bootctl --path=/boot install
