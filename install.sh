@@ -57,6 +57,14 @@ systemctl enable NetworkManager.service
 # mkdir -p /etc/pacman.d/hooks
 # echo -e "[Trigger]\nOperation=Install\nOperation=Upgrade\nOperation=Remove\nType=Package\nTarget=nvidia\n\n[Action]\nDepends=mkinitcpio\nWhen=PostTransaction\nExec=/usr/bin/mkinitcpio -P" >> /etc/pacman.d/hooks/nvidia
 
+## VirtualBox
+# pacman -S --needed --noconfirm virtualbox-guest-utils xf86-video-vmware
+# systemctl enable vboxservice.service
+
+## VMWare
+# pacman -S --needed --noconfirm open-vm-tools gtkmm3 xf86-video-vmware
+# systemctl enable vmtoolsd.service vmware-vmblock-fuse.service
+
 ## Desktop applications
 # pacman -S --needed --noconfirm alacritty firefox thunderbird ark p7zip mpv pcmanfm gwenview kate libreoffice discord gimp gparted steam lutris dosbox kvantum-qt5 htop neofetch firewalld
 # systemctl enable firewalld.service
@@ -82,13 +90,5 @@ systemctl enable NetworkManager.service
 # pacman -S --needed --noconfirm qemu libvirt iptables-nft virt-manager virsh virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat libguestfs
 # systemctl enable libvirtd.service
 # usermod -aG libvirt $USERNAME
-
-## VirtualBox
-# pacman -S --needed --noconfirm virtualbox-guest-utils xf86-video-vmware
-# systemctl enable vboxservice.service
-
-## VMWare
-# pacman -S --needed --noconfirm open-vm-tools gtkmm3 xf86-video-vmware
-# systemctl enable vmtoolsd.service vmware-vmblock-fuse.service
 
 echo "Please reboot and log into the $USERNAME account."
