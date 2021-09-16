@@ -66,7 +66,7 @@ systemctl enable NetworkManager.service
 # systemctl enable vmtoolsd.service vmware-vmblock-fuse.service
 
 ## Desktop applications
-# pacman -S --needed --noconfirm alacritty firefox thunderbird ark p7zip mpv pcmanfm gwenview kate libreoffice discord gimp gparted steam lutris dosbox kvantum-qt5 htop neofetch firewalld
+# pacman -S --needed --noconfirm alacritty firefox thunderbird ark p7zip mpv pcmanfm-qt gwenview kate libreoffice discord gimp gparted steam lutris dosbox kvantum-qt5 htop neofetch firewalld
 # systemctl enable firewalld.service
 
 ## Plasma desktop
