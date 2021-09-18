@@ -3,8 +3,12 @@
 ## Update directories in ~ (sometimes the relevant files are not generated on reboot)
 xdg-user-dirs-update
 
+## Place kitty config file in correct location and modify
+cp /usr/share/doc/kitty/kitty.conf ~/.config/kitty/kitty.conf
+# sed -i "9s/font_family .*/font_family      Cascadia Code" ~/.config/kitty/kitty.conf
+
 ## Install custom keyboard layout with more characters
-sudo mv evdev.xml /usr/share/X11/xkb/rules/evdev.xml
+mv evdev.xml /usr/share/X11/xkb/rules/evdev.xml
 git clone https://github.com/jmrio/uk-intl-kb ~/gitrepos/ukkb
 cd ~/gitrepos/ukkb
 echo 'cat uk-intl-kb >> /usr/share/X11/xkb/symbols/gb' | sudo -s

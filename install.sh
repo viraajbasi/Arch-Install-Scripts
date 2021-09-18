@@ -35,7 +35,7 @@ useradd -mG wheel $USERNAME
 echo "$USERNAME:$USERPASSWD" | chpasswd
 
 ## Allow multilib installation, run full system upgrade, and install base packages
-sed -i "93,94s/#//;37s/#//" /etc/pacman.conf
+sed -i "93,94s/#//;37s/#//;38iILoveCandy" /etc/pacman.conf
 pacman -Syu --needed --noconfirm base-devel bash-completion networkmanager efibootmgr dosfstools mtools ntfs-3g xdg-user-dirs
 systemctl enable NetworkManager.service
 
@@ -66,7 +66,7 @@ systemctl enable NetworkManager.service
 # systemctl enable vmtoolsd.service vmware-vmblock-fuse.service
 
 ## Desktop applications
-# pacman -S --needed --noconfirm alacritty firefox thunderbird ark p7zip mpv dolphin dolphin-plugins gwenview kate libreoffice discord gimp gparted steam lutris dosbox kvantum-qt5 bpytop neofetch firewalld
+# pacman -S --needed --noconfirm kitty firefox thunderbird ark p7zip mpv dolphin dolphin-plugins gwenview kate libreoffice discord gimp gparted steam lutris dosbox kvantum-qt5 bpytop neofetch firewalld
 # systemctl enable firewalld.service
 
 ## Plasma desktop
