@@ -40,9 +40,6 @@ makepkg -si --noconfirm
 ## Remove ~/gitrepos
 rm -rf ~/gitrepos
 
-## Icon themes
-# sudo pacman -S --needed --noconfirm papirus-icon-theme
-
 ## Desktop applications
 # yay -S --needed --noconfirm minigalaxy itch minecraft-launcher appimagelauncher
 

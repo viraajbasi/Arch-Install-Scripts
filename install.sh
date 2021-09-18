@@ -73,6 +73,9 @@ systemctl enable NetworkManager.service
 # pacman -S --needed --noconfirm xorg-server sddm plasma packagekit-qt5 libdbusmenu-glib appmenu-gtk-module
 # systemctl enable sddm.service
 
+## Themes
+# pacman -S --needed --noconfirm papirus-icon-theme
+
 ## Fonts
 # pacman -S --needed --noconfirm ttf-cascadia-code noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-liberation ttf-ubuntu-font-family ttf-font-awesome
 
