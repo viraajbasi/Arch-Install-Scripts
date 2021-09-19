@@ -18,8 +18,9 @@ echo 'cat uk-intl-kb >> /usr/share/X11/xkb/symbols/gb' | sudo -s
 mkdir -p ~/.config/nvim
 echo -e "syntax on\nset smartindent\nset nu\nset smartcase\nset incsearch\nset hlsearch\nset tabstop=4\nset shiftwidth=4\nset noerrorbells\ncolorscheme desert" >> ~/.config/nvim/init.vim
 
-## Configure bash aliases
-echo -e "alias weather=\"curl wttr.in\"\nalias g=\"git\"\nalias vim=\"nvim\"\nalias sysup=\"yay -Syu\"\nalias install=\"yay -S\"\nalias remove=\"yay -Rcns\"\nalias search=\"yay -Ss\"" >> ~/.bashrc
+## Configure bash
+sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+echo -e "alias weather=\"curl wttr.in\"\nalias g=\"git\"\nalias vim=\"nvim\"\nalias sysup=\"yay -Syu\"\nalias install=\"yay -S\"\nalias remove=\"yay -Rcns\"\nalias search=\"yay -Ss\"\neval \"\$(starship init bash)\"" >> ~/.bashrc
 
 ## Install yay
 git clone https://aur.archlinux.org/yay ~/gitrepos/yay
