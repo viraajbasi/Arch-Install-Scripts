@@ -88,7 +88,7 @@ systemctl enable NetworkManager.service
 # systemctl enable cups.socket
 
 ## Programming
-# pacman -S --needed --noconfirm code dotnet-runtime dotnet-sdk dotnet-hosts dotnet-targeting-pack python
+# pacman -S --needed --noconfirm code dotnet-runtime dotnet-sdk dotnet-host dotnet-targeting-pack python
 
 ## Virtualisation using qemu and libvirt
 # pacman -S --needed --noconfirm qemu libvirt iptables-nft virt-manager virsh virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat libguestfs
