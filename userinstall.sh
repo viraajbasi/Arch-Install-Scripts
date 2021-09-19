@@ -41,6 +41,9 @@ makepkg -si --noconfirm
 ## Remove ~/gitrepos
 rm -rf ~/gitrepos
 
+## Libreoffice theme
+# yay -S --needed --noconfirm papirus-libreoffice-theme
+
 ## Desktop applications
 # yay -S --needed --noconfirm minigalaxy itch minecraft-launcher
 
