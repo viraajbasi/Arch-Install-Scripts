@@ -42,7 +42,7 @@ makepkg -si --noconfirm
 rm -rf ~/gitrepos
 
 ## Desktop applications
-# yay -S --needed --noconfirm minigalaxy itch minecraft-launcher appimagelauncher
+# yay -S --needed --noconfirm minigalaxy itch minecraft-launcher
 
 ## Programming
 # yay -S --needed --noconfirm code-features code-icons code-marketplace unityhub
