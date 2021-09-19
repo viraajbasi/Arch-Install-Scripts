@@ -8,6 +8,7 @@ USERNAME="viraaj"
 USERPASSWD="password"
 
 ## Set timezone and sync hardware clock
+timedatectl set-ntp true
 ln -sf /usr/share/zoneinfo/Europe/London /etc/localtime
 hwclock --systohc
 
