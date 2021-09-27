@@ -26,7 +26,7 @@ echo -e "127.0.0.1\tlocalhost\n::1\t\tlocalhost\n127.0.1.1\t$HOSTNAME.localdomai
 bootctl --path=/boot install
 sed -i "s/default .*/default arch-*/" /boot/loader/loader.conf
 echo -e "title\tArch Linux\nlinux\t/vmlinuz-linux-zen\ninitrd\t/amd-ucode.img\ninitrd\t/initramfs-linux-zen.img" >> /boot/loader/entries/arch.conf
-## Comment below if using NVIDIA
+## Only use the command below if the system doesn't use nvidia
 echo -e "options\troot=PARTUUID=$(blkid -s PARTUUID -o value $ROOTPART) rw" >> /boot/loader/entries/arch.conf
 
 ## Add and configure users
@@ -57,12 +57,13 @@ systemctl enable NetworkManager.service
 # echo -e "options\troot=PARTUUID=$(blkid -s PARTUUID -o value $ROOTPART) rw nvidia-drm.modeset=1" >> /boot/loader/entries/arch.conf
 # mkdir -p /etc/pacman.d/hooks
 # echo -e "[Trigger]\nOperation=Install\nOperation=Upgrade\nOperation=Remove\nType=Package\nTarget=nvidia\n\n[Action]\nDepends=mkinitcpio\nWhen=PostTransaction\nExec=/usr/bin/mkinitcpio -P" >> /etc/pacman.d/hooks/nvidia
+# mkinitcpio -P
 
-## VirtualBox
+## VirtualBox VM tools
 # pacman -S --needed --noconfirm virtualbox-guest-utils xf86-video-vmware
 # systemctl enable vboxservice.service
 
-## VMWare
+## VMWare VM tools
 # pacman -S --needed --noconfirm open-vm-tools gtkmm3 xf86-video-vmware
 # systemctl enable vmtoolsd.service vmware-vmblock-fuse.service
 
