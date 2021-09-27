@@ -20,7 +20,7 @@ echo -e "syntax on\nset smartindent\nset nu\nset smartcase\nset incsearch\nset h
 
 ## Configure bash
 sh -c "$(curl -fsSL https://starship.rs/install.sh)"
-echo -e "alias weather=\"curl wttr.in\"\nalias g=\"git\"\nalias vim=\"nvim\"\nalias sysup=\"yay -Syu\"\nalias install=\"yay -S\"\nalias remove=\"yay -Rcns\"\nalias search=\"yay -Ss\"\neval \"\$(starship init bash)\"" >> ~/.bashrc
+echo -e "alias weather=\"curl wttr.in\"\nalias g=\"git\"\nalias vim=\"nvim\"\nalias sysup=\"yay -Syu\"\nalias install=\"yay -S\"\nalias remove=\"yay -Rcns\"\nalias search=\"yay -Ss\"\neval \"\$(starship init bash)\"\npfetch" >> ~/.bashrc
 
 ## Install yay
 git clone https://aur.archlinux.org/yay ~/gitrepos/yay
@@ -46,7 +46,7 @@ rm -rf ~/gitrepos
 # yay -S --needed --noconfirm papirus-libreoffice-theme
 
 ## Desktop applications
-# yay -S --needed --noconfirm minigalaxy itch minecraft-launcher
+# yay -S --needed --noconfirm minigalaxy itch minecraft-launcher pfetch
 
 ## Programming
 # yay -S --needed --noconfirm code-features code-icons code-marketplace unityhub
