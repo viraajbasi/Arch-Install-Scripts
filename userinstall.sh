@@ -20,6 +20,7 @@ echo -e "syntax on\nset smartindent\nset nu\nset smartcase\nset incsearch\nset h
 
 ## Configure bash
 sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+echo -e "[line_break]\ndisabled = true" >> ~/.config/starship.toml
 echo -e "alias weather=\"curl wttr.in\"\nalias g=\"git\"\nalias vim=\"nvim\"\nalias sysup=\"yay -Syu\"\nalias install=\"yay -S\"\nalias remove=\"yay -Rcns\"\nalias search=\"yay -Ss\"\neval \"\$(starship init bash)\"\npfetch" >> ~/.bashrc
 
 ## Install yay
