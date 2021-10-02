@@ -32,7 +32,7 @@ echo -e "options\troot=PARTUUID=$(blkid -s PARTUUID -o value $ROOTPART) rw" >> /
 ## Add and configure users
 echo "root:$ROOTPASSWD" | chpasswd
 sed -i "82s/# //" /etc/sudoers
-useradd -mG wheel $USERNAME
+useradd -mG wheel,sys $USERNAME
 echo "$USERNAME:$USERPASSWD" | chpasswd
 
 ## Allow multilib installation, run full system upgrade, and install base packages
@@ -87,6 +87,7 @@ systemctl enable NetworkManager.service
 ## Printing tools
 # pacman -S --needed --noconfirm cups hplip
 # systemctl enable cups.socket
+# usermod -aG lp,scanner$USERNAME
 
 ## Programming
 # pacman -S --needed --noconfirm code dotnet-runtime dotnet-sdk dotnet-host dotnet-targeting-pack python
