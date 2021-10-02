@@ -32,11 +32,11 @@ echo -e "options\troot=PARTUUID=$(blkid -s PARTUUID -o value $ROOTPART) rw" >> /
 ## Add and configure users
 echo "root:$ROOTPASSWD" | chpasswd
 sed -i "82s/# //" /etc/sudoers
-useradd -mG wheel,sys $USERNAME
+useradd -mG wheel,sys,adm,games,ftp,http $USERNAME
 echo "$USERNAME:$USERPASSWD" | chpasswd
 
 ## Allow multilib installation, run full system upgrade, and install base packages
-sed -i "93,94s/#//;37s/#//;38iILoveCandy" /etc/pacman.conf
+sed -i "93,94s/#//;36,37s/#//;38iILoveCandy" /etc/pacman.conf
 pacman -Syu --needed --noconfirm base-devel bash-completion networkmanager efibootmgr dosfstools mtools ntfs-3g xdg-user-dirs
 systemctl enable NetworkManager.service
 
@@ -85,7 +85,7 @@ systemctl enable NetworkManager.service
 # pacman -S --needed --noconfirm piper
 
 ## Printing tools
-# pacman -S --needed --noconfirm cups hplip
+# pacman -S --needed --noconfirm cups hplip system-config-printer
 # systemctl enable cups.socket
 # usermod -aG lp,scanner$USERNAME
 
