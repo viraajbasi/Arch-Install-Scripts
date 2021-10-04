@@ -32,9 +32,7 @@ echo -e "127.0.0.1\tlocalhost\n::1\t\tlocalhost\n127.0.1.1\t$HOSTNAME.localdomai
 ## Install and configure bootloader (systemd-boot)
 bootctl --path=/boot install
 sed -i "s/default .*/default arch-*/" /boot/loader/loader.conf
-echo -e "title\tArch Linux\nlinux\t/vmlinuz-linux-zen\ninitrd\t/amd-ucode.img\ninitrd\t/initramfs-linux-zen.img" >> /boot/loader/entries/arch.conf
-## Only use the command below if the system doesn't use nvidia
-echo -e "options\troot=PARTUUID=$(blkid -s PARTUUID -o value $ROOTPART) rw" >> /boot/loader/entries/arch.conf
+echo -e "title\tArch Linux\nlinux\t/vmlinuz-linux-zen\ninitrd\t/amd-ucode.img\ninitrd\t/initramfs-linux-zen.img\noptions\troot=PARTUUID=$(blkid -s PARTUUID -o value $ROOTPART) rw" >> /boot/loader/entries/arch.conf
 
 ## Add and configure users
 echo "root:$ROOTPASSWD" | chpasswd
@@ -64,10 +62,10 @@ systemctl enable NetworkManager.service
 ## Nvidia drivers
 # pacman -S --needed --noconfirm nvidia-dkms nvidia-utils nvidia-settings lib32-nvidia-utils opencl-nvidia lib32-opencl-nvida libglvnd lib32-libglvnd
 # sed -i "s/MODULES=()/MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)/" /etc/mkinitcpio.conf
-# echo -e "options\troot=PARTUUID=$(blkid -s PARTUUID -o value $ROOTPART) rw nvidia-drm.modeset=1" >> /boot/loader/entries/arch.conf
+# sed -i "5s/$/ nvidia-drm.modeset=1/" /boot/loader/entries/arch.conf
 # mkdir -p /etc/pacman.d/hooks
-# echo -e "[Trigger]\nOperation=Install\nOperation=Upgrade\nOperation=Remove\nType=Package\nTarget=nvidia\n\n[Action]\nDepends=mkinitcpio\nWhen=PostTransaction\nExec=/usr/bin/mkinitcpio -P" >> /etc/pacman.d/hooks/nvidia
-# mkinitcpio -P
+# echo -e "[Trigger]\nOperation=Install\nOperation=Upgrade\nOperation=Remove\nType=Package\nTarget=nvidia-dkms\n\n[Action]\nDepends=mkinitcpio\nWhen=PostTransaction\nExec=/usr/bin/mkinitcpio -P" >> /etc/pacman.d/hooks/nvidia.hook
+# echo -e "ACTION==\"add\", DEVPATH==\"/bus/pci/drivers/nvidia\", RUN+=\"/usr/bin/nvidia-modprobe -c0 -u\"" >> /etc/udev/rules.d/70-nvidia.rules
 
 ## VirtualBox VM tools
 # pacman -S --needed --noconfirm virtualbox-guest-utils xf86-video-vmware
