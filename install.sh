@@ -76,7 +76,7 @@ systemctl enable NetworkManager.service
 # systemctl enable vmtoolsd.service vmware-vmblock-fuse.service
 
 ## Desktop applications
-# pacman -S --needed --noconfirm kitty firefox thunderbird ark mpv dolphin dolphin-plugins gwenview kate libreoffice discord gimp gparted btop neofetch firewalld
+# pacman -S --needed --noconfirm kitty firefox thunderbird ark mpv notepadqq dolphin dolphin-plugins gwenview libreoffice discord gimp gparted btop neofetch firewalld
 # systemctl enable firewalld.service
 
 ## Gaming

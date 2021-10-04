@@ -53,6 +53,9 @@ rm -rf ~/gitrepos
 ## Gaming
 # yay -S --needed --noconfirm minigalaxy itch minecraft-launcher
 
+## Desktop applications
+# yay -S --needed --noconfirm deadbeef
+
 ## Programming
 # yay -S --needed --noconfirm code-features code-icons code-marketplace unityhub
 
