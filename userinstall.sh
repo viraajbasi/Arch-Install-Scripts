@@ -1,7 +1,11 @@
 #!/bin/bash
 
-## Update directories in ~ (sometimes the relevant files are not generated on reboot)
-xdg-user-dirs-update
+######################################################
+# This script assumes the following:                 #
+# git, and kitty are installed.                      #
+# neovim is the desired text editor for the console. #
+# The user directories are correctly generated.      #
+######################################################
 
 ## Place kitty config file in correct location and modify
 mkdir ~/.config/kitty
@@ -21,7 +25,7 @@ echo -e "syntax on\nset smartindent\nset nu\nset smartcase\nset incsearch\nset h
 ## Configure bash
 sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 echo -e "[line_break]\ndisabled = true" >> ~/.config/starship.toml
-echo -e "alias weather=\"curl wttr.in\"\nalias g=\"git\"\nalias vim=\"nvim\"\nalias sysup=\"yay -Syu\"\nalias install=\"yay -S\"\nalias remove=\"yay -Rcns\"\nalias search=\"yay -Ss\"\neval \"\$(starship init bash)\"\npfetch" >> ~/.bashrc
+echo -e "alias weather=\"curl wttr.in\"\nalias g=\"git\"\nalias vim=\"nvim\"\nalias sysup=\"yay -Syu\"\nalias install=\"yay -S\"\nalias remove=\"yay -Rcns\"\nalias search=\"yay -Ss\"\neval \"\$(starship init bash)\"" >> ~/.bashrc
 
 ## Install yay
 git clone https://aur.archlinux.org/yay ~/gitrepos/yay
@@ -46,8 +50,8 @@ rm -rf ~/gitrepos
 ## Libreoffice theme
 # yay -S --needed --noconfirm papirus-libreoffice-theme
 
-## Desktop applications
-# yay -S --needed --noconfirm minigalaxy itch minecraft-launcher pfetch
+## Gaming
+# yay -S --needed --noconfirm minigalaxy itch minecraft-launcher
 
 ## Programming
 # yay -S --needed --noconfirm code-features code-icons code-marketplace unityhub

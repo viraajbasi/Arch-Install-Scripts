@@ -1,5 +1,12 @@
 #!/bin/bash
 
+################################################################################################################
+# This script assumes the following:                                                                           #
+# The PC is using UEFI boot.                                                                                   #
+# The packages "base, base-devel, linux-zen, linux-zen-headers, linux-firmware, amd-ucode, git" are installed. #
+# The desired locale, language, and timezone are for the UK.                                                   #
+################################################################################################################
+
 ## Variables
 ROOTPART="/dev/sda2"
 HOSTNAME="arch"
@@ -37,8 +44,11 @@ echo "$USERNAME:$USERPASSWD" | chpasswd
 
 ## Allow multilib installation, run full system upgrade, and install base packages
 sed -i "93,94s/#//;36,37s/#//;38iILoveCandy" /etc/pacman.conf
-pacman -Syu --needed --noconfirm base-devel bash-completion networkmanager efibootmgr dosfstools mtools ntfs-3g xdg-user-dirs
+pacman -Syu --needed --noconfirm bash-completion networkmanager efibootmgr
 systemctl enable NetworkManager.service
+
+## Disk utilities
+# pacman -S --needed --noconfirm dosfstools mtools ntfs-3g
 
 ## Bluetooth
 # pacman -S --needed --noconfirm bluez bluez-utils
@@ -68,15 +78,18 @@ systemctl enable NetworkManager.service
 # systemctl enable vmtoolsd.service vmware-vmblock-fuse.service
 
 ## Desktop applications
-# pacman -S --needed --noconfirm kitty firefox thunderbird ark p7zip vlc dolphin dolphin-plugins gwenview kate libreoffice discord gimp gparted steam lutris dosbox kvantum-qt5 btop neofetch firewalld
+# pacman -S --needed --noconfirm kitty firefox thunderbird ark mpv dolphin dolphin-plugins gwenview kate libreoffice discord gimp gparted btop neofetch firewalld
 # systemctl enable firewalld.service
+
+## Gaming
+# pacman -S --needed --noconfirm steam lutris dosbox
 
 ## Plasma desktop
 # pacman -S --needed --noconfirm xorg-server sddm plasma packagekit-qt5 libdbusmenu-glib appmenu-gtk-module
 # systemctl enable sddm.service
 
 ## Themes
-# pacman -S --needed --noconfirm papirus-icon-theme
+# pacman -S --needed --noconfirm papirus-icon-theme kvantum-qt5
 
 ## Fonts
 # pacman -S --needed --noconfirm ttf-cascadia-code noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-liberation ttf-ubuntu-font-family ttf-font-awesome
