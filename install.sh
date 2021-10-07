@@ -46,18 +46,18 @@ pacman -Syu --needed --noconfirm bash-completion networkmanager efibootmgr
 systemctl enable NetworkManager.service
 
 ## Disk utilities
-# pacman -S --needed --noconfirm dosfstools mtools ntfs-3g
+pacman -S --needed --noconfirm dosfstools mtools ntfs-3g
 
 ## Bluetooth
 # pacman -S --needed --noconfirm bluez bluez-utils
 # systemctl enable bluetooth.service
 
 ## Pipewire
-# pacman -S --needed --noconfirm pipewire pipewire-pulse pipewire-jack pipewire-alsa
+pacman -S --needed --noconfirm pipewire pipewire-pulse pipewire-jack pipewire-alsa
 
 ## OpenSSH
-# pacman -S --needed --noconfirm openssh
-# systemctl enable sshd.service
+pacman -S --needed --noconfirm openssh
+systemctl enable sshd.service
 
 ## Nvidia drivers
 # pacman -S --needed --noconfirm nvidia-dkms nvidia-utils nvidia-settings lib32-nvidia-utils opencl-nvidia lib32-opencl-nvida libglvnd lib32-libglvnd
@@ -76,36 +76,36 @@ systemctl enable NetworkManager.service
 # systemctl enable vmtoolsd.service vmware-vmblock-fuse.service
 
 ## Desktop applications
-# pacman -S --needed --noconfirm kitty firefox thunderbird ark mpv notepadqq dolphin dolphin-plugins gwenview libreoffice discord gimp gparted btop neofetch firewalld
-# systemctl enable firewalld.service
+pacman -S --needed --noconfirm kitty firefox thunderbird ark mpv notepadqq dolphin dolphin-plugins gwenview libreoffice discord gimp gparted btop neofetch firewalld
+systemctl enable firewalld.service
 
 ## Gaming
-# pacman -S --needed --noconfirm steam lutris dosbox
+pacman -S --needed --noconfirm steam lutris dosbox
 
 ## Plasma desktop
-# pacman -S --needed --noconfirm xorg-server sddm plasma packagekit-qt5 libdbusmenu-glib appmenu-gtk-module
-# systemctl enable sddm.service
+pacman -S --needed --noconfirm xorg-server sddm plasma packagekit-qt5 libdbusmenu-glib appmenu-gtk-module
+systemctl enable sddm.service
 
 ## Themes
-# pacman -S --needed --noconfirm papirus-icon-theme kvantum-qt5
+pacman -S --needed --noconfirm papirus-icon-theme kvantum-qt5
 
 ## Fonts
-# pacman -S --needed --noconfirm ttf-cascadia-code noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-liberation ttf-ubuntu-font-family ttf-font-awesome
+pacman -S --needed --noconfirm ttf-cascadia-code noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-liberation ttf-ubuntu-font-family ttf-font-awesome
 
 ## Device control
-# pacman -S --needed --noconfirm piper
+pacman -S --needed --noconfirm piper
 
 ## Printing tools
-# pacman -S --needed --noconfirm cups hplip system-config-printer
-# systemctl enable cups.socket
-# usermod -aG lp,scanner$USERNAME
+pacman -S --needed --noconfirm cups hplip system-config-printer
+systemctl enable cups.socket
+usermod -aG lp,scanner $USERNAME
 
 ## Programming
-# pacman -S --needed --noconfirm code dotnet-runtime dotnet-sdk dotnet-host dotnet-targeting-pack python
+pacman -S --needed --noconfirm code dotnet-runtime dotnet-sdk dotnet-host dotnet-targeting-pack python
 
 ## Virtualisation using qemu and libvirt
-# pacman -S --needed --noconfirm qemu libvirt iptables-nft virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat libguestfs
-# systemctl enable libvirtd.service
-# usermod -aG libvirt $USERNAME
+pacman -S --needed --noconfirm qemu libvirt iptables-nft virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat libguestfs
+systemctl enable libvirtd.service
+usermod -aG libvirt $USERNAME
 
 echo "Please reboot and log into the $USERNAME account."
