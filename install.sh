@@ -83,7 +83,7 @@ systemctl enable firewalld.service
 pacman -S --needed --noconfirm steam lutris dosbox
 
 ## Plasma desktop
-pacman -S --needed --noconfirm xorg-server sddm plasma packagekit-qt5 libdbusmenu-glib appmenu-gtk-module
+pacman -S --needed --noconfirm xorg-server sddm plasma packagekit-qt5 libdbusmenu-glib appmenu-gtk-module latte-dock
 systemctl enable sddm.service
 
 ## Themes
