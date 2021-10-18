@@ -10,7 +10,7 @@
 ## Place kitty config file in correct location and modify
 mkdir ~/.config/kitty
 cp /usr/share/doc/kitty/kitty.conf ~/.config/kitty/kitty.conf
-sed -i "9s/font_family .*/font_family      Cascadia Code/" ~/.config/kitty/kitty.conf
+sed -i "9s/font_family .*/font_family      Cascadia Code/;762s/background_opacity .*/background_opacity 0.75/" ~/.config/kitty/kitty.conf
 
 ## Install custom keyboard layout with more characters
 sudo mv evdev.xml /usr/share/X11/xkb/rules/evdev.xml
