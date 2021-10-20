@@ -76,7 +76,7 @@ systemctl enable sshd.service
 # systemctl enable vmtoolsd.service vmware-vmblock-fuse.service
 
 ## Desktop applications
-pacman -S --needed --noconfirm kitty firefox thunderbird ark mpv notepadqq dolphin dolphin-plugins gwenview libreoffice discord gimp gparted btop neofetch firewalld
+pacman -S --needed --noconfirm kitty firefox thunderbird ark mpv notepadqq dolphin dolphin-plugins gwenview libreoffice discord gimp gparted btop neofetch firewalld youtube-dl
 systemctl enable firewalld.service
 
 ## Gaming
