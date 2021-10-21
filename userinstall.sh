@@ -57,6 +57,11 @@ git clone https://github.com/vinceliuice/tela-icon-theme ~/gitrepos/tela-icon-th
 cd ~/gitrepos/tela-icon-theme
 ./install.sh -a
 
+## Sticky window snapping kwin extension
+git clone https://github.com/Flupp/sticky-window-snapping ~/gitrepos/window
+cd ~/gitrepos/window
+./kpackagetool-install.bash
+
 ## Remove ~/gitrepos
 rm -rf ~/gitrepos
 
