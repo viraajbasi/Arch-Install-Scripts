@@ -32,17 +32,30 @@ git clone https://aur.archlinux.org/yay ~/gitrepos/yay
 cd ~/gitrepos/yay
 makepkg -si --noconfirm
 
-## Qogir themes
 ## Qogir-gtk
 git clone https://github.com/vinceliuice/qogir-theme ~/gitrepos/qogir-theme
 cd ~/gitrepos/qogir-theme
-sudo pacman -S --needed --noconfirm gtk-engine-murrine gtk-engines
 ./install.sh
+
 ## Qogir-kde
 git clone https://github.com/vinceliuice/qogir-kde ~/gitrepos/qogir-kde
 cd ~/gitrepos/qogir-kde
 ./install.sh
-## Ensure that the correct theme is selected in kvantum
+
+## Layan-gtk
+git clone https://github.com/vinceliuice/layan-gtk-theme ~/gitrepos/layan-gtk
+cd ~/gitrepos/layan-gtk
+./install.sh
+
+## Layan-kde
+git clone https://github.com/vinceliuice/layan-kde ~/gitrepos/layan-kde
+cd ~/gitrepos/layan-kde
+./install.sh
+
+## Tela icons
+git clone https://github.com/vinceliuice/tela-icon-theme ~/gitrepos/tela-icon-theme
+cd ~/gitrepos/tela-icon-theme
+./install.sh -a
 
 ## Remove ~/gitrepos
 rm -rf ~/gitrepos
