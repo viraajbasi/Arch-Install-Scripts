@@ -83,6 +83,9 @@ yay -S --needed --noconfirm openrgb
 ## Fonts
 yay -S --needed --noconfirm ttf-google-sans ttf-ms-win10-auto
 
+## Microsoft
+yay -S --needed --noconfirm teams microsoft-edge-dev-bin
+
 ## Plasma gtk configuration for the global menu
 mkdir ~/.config/gtk-3.0
 echo -e "gtk-modules=\"appmenu-gtk-module\"" >> ~/.gtkrc-2.0
