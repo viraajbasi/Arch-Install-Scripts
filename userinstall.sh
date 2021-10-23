@@ -72,7 +72,7 @@ yay -S --needed --noconfirm papirus-libreoffice-theme
 yay -S --needed --noconfirm minigalaxy itch minecraft-launcher
 
 ## Desktop applications
-yay -S --needed --noconfirm deadbeef spotify
+yay -S --needed --noconfirm spotify
 
 ## Programming
 yay -S --needed --noconfirm code-features code-icons code-marketplace unityhub
