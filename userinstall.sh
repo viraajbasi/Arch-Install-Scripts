@@ -84,7 +84,7 @@ yay -S --needed --noconfirm openrgb
 yay -S --needed --noconfirm ttf-google-sans ttf-ms-win10-auto
 
 ## Microsoft
-yay -S --needed --noconfirm teams microsoft-edge-dev-bin
+yay -S --needed --noconfirm teams
 
 ## Plasma gtk configuration for the global menu
 mkdir ~/.config/gtk-3.0
