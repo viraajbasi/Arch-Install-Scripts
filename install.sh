@@ -37,7 +37,7 @@ echo -e "title\tArch Linux\nlinux\t/vmlinuz-linux-zen\ninitrd\t/amd-ucode.img\ni
 ## Add and configure users
 echo "root:$ROOTPASSWD" | chpasswd
 sed -i "82s/# //" /etc/sudoers
-useradd -mG wheel,sys,adm,games,ftp,http $USERNAME
+useradd -mG wheel,sys,adm,games,ftp,http,floppy,optical,storage $USERNAME
 echo "$USERNAME:$USERPASSWD" | chpasswd
 
 ## Allow multilib installation, run full system upgrade, and install base packages
