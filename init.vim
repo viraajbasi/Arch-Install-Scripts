@@ -1,0 +1,10 @@
+syntax on
+set smartindent
+set nu
+set smartcase
+set incsearch
+set hlsearch
+set tabstop=4
+set shiftwidth=4
+set noerrorbells
+colorscheme desert

@@ -7,25 +7,27 @@
 # The user directories are correctly generated.      #
 ######################################################
 
-## Place kitty config file in correct location and modify
-mkdir ~/.config/kitty
-cp /usr/share/doc/kitty/kitty.conf ~/.config/kitty/kitty.conf
-sed -i "9s/font_family .*/font_family      Cascadia Code/;762s/background_opacity .*/background_opacity 0.75/" ~/.config/kitty/kitty.conf
+## Configure kitty
+mkdir -p ~/.config/kitty
+mv kitty.conf ~/.config/kitty/kitty.conf
+
+## Configure fish
+mkdir -p ~/.config/fish
+mv config.fish ~/.config/fish/config.fish
+
+## Configure neovim
+mkdir -p ~/.config/nvim
+mv init.vim ~/.config/nvim/init.vim
+
+## Configure starship prompt
+sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --force --yes
+mv starship.toml ~/.config/starship.toml
 
 ## Install custom keyboard layout with more characters
 sudo mv evdev.xml /usr/share/X11/xkb/rules/evdev.xml
 git clone https://github.com/jmrio/uk-intl-kb ~/gitrepos/ukkb
 cd ~/gitrepos/ukkb
 echo 'cat uk-intl-kb >> /usr/share/X11/xkb/symbols/gb' | sudo -s
-
-## Configure neovim
-mkdir -p ~/.config/nvim
-echo -e "syntax on\nset smartindent\nset nu\nset smartcase\nset incsearch\nset hlsearch\nset tabstop=4\nset shiftwidth=4\nset noerrorbells\ncolorscheme desert" >> ~/.config/nvim/init.vim
-
-## Configure bash
-sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --force --yes
-echo -e "[line_break]\ndisabled = true" >> ~/.config/starship.toml
-echo -e "alias weather=\"curl wttr.in\"\nalias g=\"git\"\nalias vim=\"nvim\"\nalias sysup=\"yay -Syu\"\nalias install=\"yay -S\"\nalias remove=\"yay -Rcns\"\nalias search=\"yay -Ss\"\nalias ytdl=\"youtube-dl\"\neval \"\$(starship init bash)\"" >> ~/.bashrc
 
 ## Install yay
 git clone https://aur.archlinux.org/yay ~/gitrepos/yay
