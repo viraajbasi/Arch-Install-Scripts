@@ -11,4 +11,5 @@ colorscheme desert
 
 call plug#begin('~/.vim/plugged')
 Plug 'cespare/vim-toml', { 'branch': 'main' }
+Plug 'dag/vim-fish'
 call plug#end()

@@ -6,34 +6,14 @@ starship init fish | source
 set fish_greeting
 
 # Aliases
-function weather
-	curl wttr.in
-end
-
-function g
-	git
-end
-
-function vim
-	nvim
-end
-
-function sysup
-	yay -Syu
-end
-
-function install
-	yay -S
-end
-
-function remove
-	yay -Rcns
-end
-
-function search
-	yay -Ss
-end
-
-function ytdl
-	youtube-dl
-end
+alias weather "curl wttr.in"
+alias clone "git clone"
+alias add "git add"
+alias commit "git commit"
+alias push "git push"
+alias fetch "git fetch"
+alias pull "git pull"
+alias sysup "yay -Syu"
+alias install "yay -S"
+alias remove "yay -Rcns"
+alias ytdl "youtube-dl"
