@@ -17,6 +17,8 @@ mv config.fish ~/.config/fish/config.fish
 
 ## Configure neovim
 mkdir -p ~/.config/nvim
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 mv init.vim ~/.config/nvim/init.vim
 
 ## Configure starship prompt
@@ -93,6 +95,5 @@ mkdir ~/.config/gtk-3.0
 echo -e "gtk-modules=\"appmenu-gtk-module\"" >> ~/.gtkrc-2.0
 echo -e "[Settings]\ngtk-modules=\"appmenu-gtk-module\"" >> ~/.config/gtk-3.0/settings.ini
 
-echo "Install complete, the computer will reboot in 5 seconds"
-sleep 5
-reboot
+echo "Run ':PlugInstall' inside neovim to complete vim-plug installation"
+echo "Install complete"
