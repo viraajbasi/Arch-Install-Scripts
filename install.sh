@@ -31,7 +31,7 @@ echo -e "127.0.0.1\tlocalhost\n::1\t\tlocalhost\n127.0.1.1\t$HOSTNAME.localdomai
 
 ## Install and configure bootloader (systemd-boot)
 bootctl --path=/boot install
-sed -i "s/default .*/default arch-*/" /boot/loader/loader.conf
+sed -i "s/default .*/default arch.conf/" /boot/loader/loader.conf
 echo -e "title\tArch Linux\nlinux\t/vmlinuz-linux-zen\ninitrd\t/amd-ucode.img\ninitrd\t/initramfs-linux-zen.img\noptions\troot=PARTUUID=$(blkid -s PARTUUID -o value $ROOTPART) rw" >> /boot/loader/entries/arch.conf
 
 ## Add and configure users
