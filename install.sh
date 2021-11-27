@@ -41,7 +41,7 @@ useradd -mG wheel,sys,adm,games,ftp,http,floppy,optical,storage $USERNAME
 echo "$USERNAME:$USERPASSWD" | chpasswd
 
 ## Allow multilib installation, run full system upgrade, and install base packages
-sed -i "93,94s/#//;36,37s/#//;38iILoveCandy" /etc/pacman.conf
+sed -i "93,94s/#//;36,37s/#//;38iILoveCandy;33s/#//" /etc/pacman.conf
 pacman -Syu --needed --noconfirm networkmanager efibootmgr fish
 systemctl enable NetworkManager.service
 usermod -s /bin/fish $USERNAME
