@@ -105,7 +105,7 @@ usermod -aG lp,scanner $USERNAME
 pacman -S --needed --noconfirm code dotnet-runtime dotnet-sdk dotnet-host dotnet-targeting-pack python nodejs npm
 
 ## Virtualisation using qemu and libvirt
-yes | pacman -S --needed qemu libvirt iptables-nft virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat libguestfs swtpm
+yes | pacman -S --needed qemu libvirt iptables-nft virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat libguestfs swtpm ovmf
 systemctl enable libvirtd.service
 usermod -aG libvirt $USERNAME
 
