@@ -47,7 +47,7 @@ systemctl enable NetworkManager.service
 usermod -s /bin/fish $USERNAME
 
 ## Disk utilities
-pacman -S --needed --noconfirm dosfstools mtools ntfs-3g
+pacman -S --needed --noconfirm dosfstools mtools
 
 ## Bluetooth
 # pacman -S --needed --noconfirm bluez bluez-utils
