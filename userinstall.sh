@@ -80,7 +80,7 @@ yay -S --needed --noconfirm minigalaxy itch minecraft-launcher
 yay -S --needed --noconfirm spotify brave-bin
 
 ## Programming
-yay -S --needed --noconfirm code-features code-icons code-marketplace unityhub
+yay -S --needed --noconfirm code-features code-icons code-marketplace unityhub rider
 
 ## Device control
 yay -S --needed --noconfirm openrgb
