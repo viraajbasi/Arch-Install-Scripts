@@ -88,7 +88,7 @@ pacman -S --needed --noconfirm xorg-server sddm plasma packagekit-qt5 libdbusmen
 systemctl enable sddm.service
 
 ## Themes
-pacman -S --needed --noconfirm papirus-icon-theme kvantum-qt5
+pacman -S --needed --noconfirm papirus-icon-theme kvantum-qt5 arc-gtk-theme
 
 ## Fonts
 pacman -S --needed --noconfirm ttf-cascadia-code noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-liberation ttf-ubuntu-font-family ttf-font-awesome
