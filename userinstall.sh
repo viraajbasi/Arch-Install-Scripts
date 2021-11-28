@@ -85,6 +85,9 @@ yay -S --needed --noconfirm code-features code-icons code-marketplace unityhub r
 ## Device control
 yay -S --needed --noconfirm openrgb
 
+## Themes
+yay -S --needed --noconfirm arc-kde-git
+
 ## Fonts
 yay -S --needed --noconfirm ttf-google-sans ttf-ms-win10-auto
 
