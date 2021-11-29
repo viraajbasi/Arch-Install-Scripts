@@ -77,7 +77,7 @@ echo -e "ACTION==\"add\", DEVPATH==\"/bus/pci/drivers/nvidia\", RUN+=\"/usr/bin/
 # systemctl enable vmtoolsd.service vmware-vmblock-fuse.service
 
 ## Desktop applications
-pacman -S --needed --noconfirm kitty thunderbird ark mpv notepadqq dolphin dolphin-plugins gwenview libreoffice discord gimp gparted btop neofetch firewalld youtube-dl blender inkscape elisa
+pacman -S --needed --noconfirm kitty thunderbird ark mpv notepadqq dolphin dolphin-plugins gwenview libreoffice discord gimp gparted btop neofetch firewalld youtube-dl blender inkscape elisa okular
 systemctl enable firewalld.service
 
 ## Gaming
