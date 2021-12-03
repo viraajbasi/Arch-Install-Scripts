@@ -94,10 +94,5 @@ yay -S --needed --noconfirm ttf-google-sans ttf-ms-win10-auto
 ## Microsoft
 yay -S --needed --noconfirm teams
 
-## Plasma gtk configuration for the global menu
-mkdir ~/.config/gtk-3.0
-echo -e "gtk-modules=\"appmenu-gtk-module\"" >> ~/.gtkrc-2.0
-echo -e "[Settings]\ngtk-modules=\"appmenu-gtk-module\"" >> ~/.config/gtk-3.0/settings.ini
-
 echo "Run ':PlugInstall' inside neovim to complete vim-plug installation"
 echo "Install complete"
