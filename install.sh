@@ -81,7 +81,8 @@ pacman -S --needed --noconfirm kitty thunderbird ark mpv notepadqq dolphin dolph
 systemctl enable firewalld.service
 
 ## Gaming
-pacman -S --needed --noconfirm steam lutris dosbox
+pacman -S --needed --noconfirm steam lutris dosbox gnome-keyring libsecret
+gnome-keyring-daemon --start
 
 ## Plasma desktop
 pacman -S --needed --noconfirm xorg-server sddm plasma packagekit-qt5 libdbusmenu-glib appmenu-gtk-module latte-dock gtk-engine-murrine gtk-engines
