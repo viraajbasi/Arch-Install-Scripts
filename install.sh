@@ -42,7 +42,7 @@ echo "$USERNAME:$USERPASSWD" | chpasswd
 
 ## Allow multilib installation, run full system upgrade, and install base packages
 sed -i "93,94s/#//;36,37s/#//;33s/#//;38iILoveCandy" /etc/pacman.conf
-pacman -Syu --needed --noconfirm networkmanager efibootmgr fish
+pacman -Syu --needed --noconfirm networkmanager efibootmgr fish man-db
 systemctl enable NetworkManager.service
 usermod -s /bin/fish $USERNAME
 
