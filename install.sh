@@ -61,12 +61,13 @@ pacman -S --needed --noconfirm openssh
 systemctl enable sshd.service
 
 ## Nvidia drivers
-pacman -S --needed --noconfirm nvidia-dkms nvidia-utils nvidia-settings lib32-nvidia-utils opencl-nvidia lib32-opencl-nvida libglvnd lib32-libglvnd
+pacman -S --needed --noconfirm nvidia-dkms nvidia-utils nvidia-settings lib32-nvidia-utils opencl-nvidia lib32-opencl-nvidia libglvnd lib32-libglvnd
 sed -i "s/MODULES=()/MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)/" /etc/mkinitcpio.conf
 sed -i "5s/$/ nvidia-drm.modeset=1/" /boot/loader/entries/arch.conf
 mkdir -p /etc/pacman.d/hooks
 echo -e "[Trigger]\nOperation=Install\nOperation=Upgrade\nOperation=Remove\nType=Package\nTarget=nvidia-dkms\n\n[Action]\nDepends=mkinitcpio\nWhen=PostTransaction\nExec=/usr/bin/mkinitcpio -P" >> /etc/pacman.d/hooks/nvidia.hook
 echo -e "ACTION==\"add\", DEVPATH==\"/bus/pci/drivers/nvidia\", RUN+=\"/usr/bin/nvidia-modprobe -c0 -u\"" >> /etc/udev/rules.d/70-nvidia.rules
+mkinitcpio -P
 
 ## VirtualBox VM tools
 # pacman -S --needed --noconfirm virtualbox-guest-utils xf86-video-vmware
