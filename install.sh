@@ -42,9 +42,9 @@ echo "$USERNAME:$USERPASSWD" | chpasswd
 
 ## Allow multilib installation, run full system upgrade, and install base packages
 sed -i "93,94s/#//;36,37s/#//;33s/#//;38iILoveCandy" /etc/pacman.conf
-pacman -Syu --needed --noconfirm networkmanager efibootmgr fish man-db
+pacman -Syu --needed --noconfirm networkmanager efibootmgr zsh man-db
 systemctl enable NetworkManager.service
-usermod -s /bin/fish $USERNAME
+usermod -s /bin/zsh $USERNAME
 
 ## Disk utilities
 pacman -S --needed --noconfirm dosfstools mtools
@@ -90,7 +90,7 @@ pacman -S --needed --noconfirm xorg-server sddm plasma packagekit-qt5 libdbusmen
 systemctl enable sddm.service
 
 ## Themes
-pacman -S --needed --noconfirm papirus-icon-theme kvantum-qt5 arc-gtk-theme
+pacman -S --needed --noconfirm papirus-icon-theme kvantum
 
 ## Fonts
 pacman -S --needed --noconfirm ttf-cascadia-code noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-liberation ttf-ubuntu-font-family ttf-font-awesome

@@ -12,8 +12,13 @@ mkdir -p ~/.config/kitty
 mv kitty.conf ~/.config/kitty/kitty.conf
 
 ## Configure fish
-mkdir -p ~/.config/fish
-mv config.fish ~/.config/fish/config.fish
+# mkdir -p ~/.config/fish
+# mv config.fish ~/.config/fish/config.fish
+
+## Configure zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+mv .zshrc ~/.zshrc
+mv .zshenv ~/.zshenv
 
 ## Configure neovim
 mkdir -p ~/.config/nvim
@@ -81,12 +86,6 @@ yay -S --needed --noconfirm spotify brave-bin
 
 ## Programming
 yay -S --needed --noconfirm code-features code-icons code-marketplace unityhub rider
-
-## Device control
-yay -S --needed --noconfirm openrgb
-
-## Themes
-yay -S --needed --noconfirm arc-kde-git
 
 ## Fonts
 yay -S --needed --noconfirm ttf-google-sans ttf-ms-win10-auto
