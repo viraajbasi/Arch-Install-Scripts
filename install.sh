@@ -43,7 +43,7 @@ echo "$USERNAME:$USERPASSWD" | chpasswd
 
 ## Allow multilib installation, run full system upgrade, and install base packages
 sed -i "93,94s/#//;36,37s/#//;33s/#//;38iILoveCandy" /etc/pacman.conf
-pacman -Syu --needed --noconfirm networkmanager efibootmgr man-db inetutils wget reflector dosfstools mtools ntfs-3g exfat-utils bluez bluez-utils firewalld pipewire pipewire-pulse pipewire-jack pipewire-alsa openssh $USERSHELL
+pacman -Syu --needed --noconfirm networkmanager efibootmgr man-db inetutils wget reflector dosfstools mtools ntfs-3g exfat-utils bluez bluez-utils firewalld pipewire pipewire-pulse pipewire-jack pipewire-alsa openssh which $USERSHELL
 systemctl enable NetworkManager.service bluetooth.service firewalld.service sshd.service
 echo -e "--save /etc/pacman.d/mirrorlist\n--country 'United Kingdom'\n--protocol https\n--latest 5\n --sort age" > /etc/xdg/reflector/reflector.conf
 systemctl enable reflector.timer
