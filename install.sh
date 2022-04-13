@@ -21,7 +21,7 @@ ln -sf /usr/share/zoneinfo/Europe/London /etc/localtime
 hwclock --systohc
 
 ## Set locale
-sed -i "160s/#//;177s/#//" /etc/locale.gen
+sed -i "161s/#//;178s/#//" /etc/locale.gen
 locale-gen
 echo "LANG=en_GB.UTF-8" >> /etc/locale.conf
 echo "KEYMAP=uk" >> /etc/vconsole.conf

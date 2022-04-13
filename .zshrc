@@ -202,6 +202,8 @@ alias lsnodep="comm -23 <(yay -Qqt | sort) <(yay -Sqg base base-devel | sort)"
 alias lsaur="yay -Qm"
 alias lsall="yay -Q"
 
+alias ssh="kitty +kitten ssh"
+
 alias solo="$HOME/Games/GTASoloSession.sh"
 alias vmgroups="$HOME/src/groups.sh"
 alias vmusb="$HOME/src/usb.sh"
