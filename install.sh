@@ -49,7 +49,7 @@ echo -e "--save /etc/pacman.d/mirrorlist\n--country 'United Kingdom'\n--protocol
 systemctl enable reflector.timer
 
 ## Set default shell
-usermod -s $(which $USERSHELL) viraaj
+usermod -s $(which $USERSHELL) $USERNAME
 # echo -e "export ZDOTDIR=\"$HOME\"/.config/zsh" >> /etc/zshenv 
 
 ## Nvidia drivers
