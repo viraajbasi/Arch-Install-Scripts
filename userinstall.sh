@@ -12,13 +12,18 @@ mkdir -p ~/.config/kitty
 mv kitty.conf ~/.config/kitty/kitty.conf
 
 ## Configure fish
-# mkdir -p ~/.config/fish
-# mv config.fish ~/.config/fish/config.fish
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+mkdir -p ~/.config/fish
+mv config.fish ~/.config/fish/config.fish
 
 ## Configure zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-mv .zshrc ~/.zshrc
-mv .zshenv ~/.zshenv
+# sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# mv .zshrc $ZDOTDIR/.zshrc
+# mv .zshenv $ZDOTDIR/.zshenv
+
+## Environment variables for wayland
+mkdir -p ~/.config/environment.d/
+echo -e "QT_QPA_PLATFORMTHEME=\"wayland;xcb\"\nCLUTTER_BACKEND=wayland\nSDL_VIDEODRIVER=wayland\nGBM_BACKEND=nvidia-drm\n__GLX_VENDOR_LIBRARY_NAME=nvidia" >> ~/.config/environment.d/envvars.conf
 
 ## Configure neovim
 mkdir -p ~/.config/nvim
@@ -28,70 +33,33 @@ sudo npm -g install instant-markdown-d
 mv init.vim ~/.config/nvim/init.vim
 
 ## Configure starship prompt
-sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --force --yes
 mv starship.toml ~/.config/starship.toml
-
-## Install custom keyboard layout with more characters
-sudo mv evdev.xml /usr/share/X11/xkb/rules/evdev.xml
-git clone https://github.com/jmrio/uk-intl-kb ~/gitrepos/ukkb
-cd ~/gitrepos/ukkb
-echo 'cat uk-intl-kb >> /usr/share/X11/xkb/symbols/gb' | sudo -s
 
 ## Install yay
 git clone https://aur.archlinux.org/yay ~/gitrepos/yay
 cd ~/gitrepos/yay
 makepkg -si --noconfirm
 
-## Qogir-gtk
-git clone https://github.com/vinceliuice/qogir-theme ~/gitrepos/qogir-theme
-cd ~/gitrepos/qogir-theme
-./install.sh
-
-## Qogir-kde
-git clone https://github.com/vinceliuice/qogir-kde ~/gitrepos/qogir-kde
-cd ~/gitrepos/qogir-kde
-./install.sh
-
-## Layan-gtk
-git clone https://github.com/vinceliuice/layan-gtk-theme ~/gitrepos/layan-gtk
-cd ~/gitrepos/layan-gtk
-./install.sh
-
-## Layan-kde
-git clone https://github.com/vinceliuice/layan-kde ~/gitrepos/layan-kde
-cd ~/gitrepos/layan-kde
-./install.sh
-
-## Tela icons
-git clone https://github.com/vinceliuice/tela-icon-theme ~/gitrepos/tela-icon-theme
-cd ~/gitrepos/tela-icon-theme
-./install.sh -a
-
 ## Sticky window snapping kwin extension
-git clone https://github.com/Flupp/sticky-window-snapping ~/gitrepos/window
-cd ~/gitrepos/window
-./kpackagetool-install.bash
+# git clone https://github.com/Flupp/sticky-window-snapping ~/gitrepos/window
+# cd ~/gitrepos/window
+# ./kpackagetool-install.bash
 
 ## Remove ~/gitrepos
 rm -rf ~/gitrepos
 
-## Libreoffice theme
-yay -S --needed --noconfirm papirus-libreoffice-theme
+## Dotnet
+mkdir -p ~/.local/bin
+wget https://dot.net/v1/dotnet-install.sh -O ~/.local/bin/dotnet-install
 
-## Gaming
-yay -S --needed --noconfirm minigalaxy itch minecraft-launcher
+## Gnome
+yay -S gnome-text-editor gnome-shell-extension-pop-shell-git chrome-gnome-shell
 
-## Desktop applications
-yay -S --needed --noconfirm spotify brave-bin
-
-## Programming
-yay -S --needed --noconfirm code-features code-icons code-marketplace unityhub rider
-
-## Fonts
-yay -S --needed --noconfirm ttf-google-sans ttf-ms-win10-auto
-
-## Microsoft
-yay -S --needed --noconfirm teams
+## AUR Packages
+yay -S --needed --noconfirm papirus-libreoffice-theme minigalaxy itch-setup-bin minecraft-launcher mangohud noisetorch extramaus downgrade unityhub rider visual-studio-code-insiders-bin ttf-google-sans pfetch openrgb
 
 echo "Run ':PlugInstall' inside neovim to complete vim-plug installation"
+echo "Run hp-setup [ip address of printer] to set up wireless printer"
+echo "Modify the desktop files of game launchers to include 'gamemoderun'"
+echo "Authenticate github using github cli"
 echo "Install complete"

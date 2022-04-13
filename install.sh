@@ -13,6 +13,7 @@ HOSTNAME="arch"
 ROOTPASSWD="password"
 USERNAME="viraaj"
 USERPASSWD="password"
+USERSHELL="fish"
 
 ## Set timezone and sync hardware clock
 timedatectl set-ntp true
@@ -42,23 +43,14 @@ echo "$USERNAME:$USERPASSWD" | chpasswd
 
 ## Allow multilib installation, run full system upgrade, and install base packages
 sed -i "93,94s/#//;36,37s/#//;33s/#//;38iILoveCandy" /etc/pacman.conf
-pacman -Syu --needed --noconfirm networkmanager efibootmgr zsh man-db
-systemctl enable NetworkManager.service
-usermod -s /bin/zsh $USERNAME
+pacman -Syu --needed --noconfirm networkmanager efibootmgr man-db inetutils wget reflector dosfstools mtools ntfs-3g exfat-utils bluez bluez-utils firewalld pipewire pipewire-pulse pipewire-jack pipewire-alsa openssh $USERSHELL
+systemctl enable NetworkManager.service bluetooth.service firewalld.service sshd.service
+echo -e "--save /etc/pacman.d/mirrorlist\n--country 'United Kingdom'\n--protocol https\n--latest 5\n --sort age" > /etc/xdg/reflector/reflector.conf
+systemctl enable reflector.timer
 
-## Disk utilities
-pacman -S --needed --noconfirm dosfstools mtools
-
-## Bluetooth
-# pacman -S --needed --noconfirm bluez bluez-utils
-# systemctl enable bluetooth.service
-
-## Pipewire
-pacman -S --needed --noconfirm pipewire pipewire-pulse pipewire-jack pipewire-alsa
-
-## OpenSSH
-pacman -S --needed --noconfirm openssh
-systemctl enable sshd.service
+## Set default shell
+usermod -s $(which $USERSHELL) viraaj
+# echo -e "export ZDOTDIR=\"$HOME\"/.config/zsh" >> /etc/zshenv 
 
 ## Nvidia drivers
 pacman -S --needed --noconfirm nvidia-dkms nvidia-utils nvidia-settings lib32-nvidia-utils opencl-nvidia lib32-opencl-nvidia libglvnd lib32-libglvnd
@@ -78,33 +70,22 @@ mkinitcpio -P
 # systemctl enable vmtoolsd.service vmware-vmblock-fuse.service
 
 ## Desktop applications
-pacman -S --needed --noconfirm kitty thunderbird ark mpv notepadqq dolphin dolphin-plugins gwenview libreoffice discord gimp partitionmanager btop neofetch firewalld youtube-dl blender inkscape elisa okular
-systemctl enable firewalld.service
-
-## Gaming
-pacman -S --needed --noconfirm steam lutris dosbox gnome-keyring libsecret
-gnome-keyring-daemon --start
+pacman -S --needed --noconfirm kitty thunderbird libreoffice discord btop neofetch gnome-calculator mpv ncdu obs-studio steam lutris gnome-keyring gamemode lib32-gamemode xorg-server wayland xwayland noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-liberation ttf-font-awesome ttf-fira-code nerd-fonts-fira-code piper dotnet-runtime dotnet-sdk dotnet-host dotnet-targeting-pack python nodejs npm mono mono-msbuild aspnet-runtime github-cli rust rust-src
 
 ## Plasma desktop
-pacman -S --needed --noconfirm xorg-server sddm plasma packagekit-qt5 libdbusmenu-glib appmenu-gtk-module latte-dock gtk-engine-murrine gtk-engines
-systemctl enable sddm.service
+# pacman -S --needed --noconfirm sddm plasma packagekit-qt5 libdbusmenu-glib appmenu-gtk-module latte-dock kvantum plasma-wayland-session
+# pacman -S --needed --noconfirm ark notepadqq dolphin dolphin-plugins gwenview partitionmanager okular
+# systemctl enable sddm.service
 
-## Themes
-pacman -S --needed --noconfirm papirus-icon-theme kvantum
-
-## Fonts
-pacman -S --needed --noconfirm ttf-cascadia-code noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-liberation ttf-ubuntu-font-family ttf-font-awesome
-
-## Device control
-pacman -S --needed --noconfirm piper
+## Gnome desktop
+pacman -S --needed --noconfirm gnome-shell gnome-backgrounds gnome-color-manager gnome-control-centre gnome-menus gnome-screenshot gnome-terminal gnome-text-editor gnome-shell-extensions gnome-themes-extra gnome-tweaks gnome-weather xdg-desktop-portal-gnome gdm
+pacman -S --needed --noconfirm dconf-editor eog evince file-roller nautilus simple-scan gnome-disk-utility
+systemctl enable gdm.service
 
 ## Printing tools
-pacman -S --needed --noconfirm cups hplip system-config-printer
+pacman -S --needed --noconfirm cups hplip system-config-printer python-pyqt5
 systemctl enable cups.socket
 usermod -aG lp,scanner $USERNAME
-
-## Programming
-pacman -S --needed --noconfirm code dotnet-runtime dotnet-sdk dotnet-host dotnet-targeting-pack python nodejs npm
 
 ## Virtualisation using qemu and libvirt
 yes | pacman -S --needed qemu libvirt iptables-nft virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat libguestfs swtpm ovmf

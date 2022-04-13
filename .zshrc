@@ -2,13 +2,13 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="$HOME/.config/zsh/oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="gianu"
+# ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -25,7 +25,7 @@ ZSH_THEME="gianu"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
-zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
@@ -41,7 +41,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -70,7 +70,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-autosuggestions colored-man-pages zsh-vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -100,11 +100,90 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# User config
-# Aliases
+# Prompt
+eval "$(starship init zsh)"
+
+# Extract function
+SAVEIFS=$IFS
+IFS=$(echo -en "\n\b")
+
+function ex {
+ if [ -z "$1" ]; then
+    # display usage if no parameters given
+    echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
+    echo "       extract <path/file_name_1.ext> [path/file_name_2.ext] [path/file_name_3.ext]"
+ else
+    for n in "$@"
+    do
+      if [ -f "$n" ] ; then
+          case "${n%,}" in
+            *.cbt|*.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar)
+                         tar xvf "$n"       ;;
+            *.lzma)      unlzma ./"$n"      ;;
+            *.bz2)       bunzip2 ./"$n"     ;;
+            *.cbr|*.rar)       unrar x -ad ./"$n" ;;
+            *.gz)        gunzip ./"$n"      ;;
+            *.cbz|*.epub|*.zip)       unzip ./"$n"       ;;
+            *.z)         uncompress ./"$n"  ;;
+            *.7z|*.arj|*.cab|*.cb7|*.chm|*.deb|*.dmg|*.iso|*.lzh|*.msi|*.pkg|*.rpm|*.udf|*.wim|*.xar)
+                         7z x ./"$n"        ;;
+            *.xz)        unxz ./"$n"        ;;
+            *.exe)       cabextract ./"$n"  ;;
+            *.cpio)      cpio -id < ./"$n"  ;;
+            *.cba|*.ace)      unace x ./"$n"      ;;
+            *)
+                         echo "extract: '$n' - unknown archive method"
+                         return 1
+                         ;;
+          esac
+      else
+          echo "'$n' - file does not exist"
+          return 1
+      fi
+    done
+fi
+}
+
+IFS=$SAVEIFS
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
+
+## Environment Variables ##
+export XDG_CONFIG_HOME="$HOME"/.config
+export XDG_CACHE_HOME="$HOME"/.cache
+export XDG_DATA_HOME="$HOME"/.local/share
+export XDG_STATE_HOME="$HOME"/.local/state
+export ZDOTDIR="$HOME"/.config/zsh
+export HISTFILE="$ZDOTDIR"/history
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
+export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
+export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
+export EDITOR=nvim
+export PATH=$PATH:"$HOME"/.local/bin
+export WGETRC="$XDG_CONFIG_HOME"/wgetrc
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
+## Aliases ##
+
 alias weather="curl wttr.in"
 alias starwars="telnet towel.blinkenlights.nl"
 alias btw="neofetch"
+alias ls="ls -ah --color=auto"
+alias ip="ip -c"
+alias b="btop"
+alias n="nvim"
+alias c="code"
+alias zshup="source $ZDOTDIR/.zshrc"
+alias reboot="sudo reboot now"
+alias shutdown="sudo shutdown now"
+alias vmstart="virsh start win11"
+alias vmstop="virsh destroy win11"
+alias rmdir="rm -rf"
 
 alias clone="git clone"
 alias add="git add"
@@ -112,9 +191,17 @@ alias commit="git commit"
 alias push="git push"    
 alias fetch="git fetch"
 alias pull="git pull"
+alias gstat="git status"
 
-alias sysup="yay -Syu" 
+alias sysup="echo -e '=== REPO UPDATES ===\n' && yay -Syu && echo -e '\n=== UPDATING OH-MY-ZSH ===\n' && omz update" 
 alias install="yay -S"
 alias remove="yay -Rcns"
-alias rmdeps="yay -Rcns $(yay -Qtdq)"
-# End of aliases
+alias lsorphans="yay -Qtdq"
+alias info="yay -Qi"
+alias lsnodep="comm -23 <(yay -Qqt | sort) <(yay -Sqg base base-devel | sort)"
+alias lsaur="yay -Qm"
+alias lsall="yay -Q"
+
+alias solo="$HOME/Games/GTASoloSession.sh"
+alias vmgroups="$HOME/src/groups.sh"
+alias vmusb="$HOME/src/usb.sh"
