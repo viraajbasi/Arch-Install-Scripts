@@ -22,3 +22,5 @@ export EDITOR=nvim
 export PATH=$PATH:"$HOME"/.local/bin
 export WGETRC="$XDG_CONFIG_HOME"/wgetrc
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export TERMINFO="$XDG_DATA_HOME"/terminfo
+export TERMINFO_DIRS="$XDG_DATA_HOME"/terminfo:/usr/share/terminfo

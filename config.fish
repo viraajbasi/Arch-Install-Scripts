@@ -24,6 +24,8 @@ set -gx WGETRC "$XDG_CONFIG_HOME"/wgetrc
 set -gx DOTNET_CLI_TELEMETRY_OPTOUT 1
 set -gx EDITOR nvim
 set -gx RUSTUP_HOME "$XDG_DATA_HOME"/rustup
+set -gx TERMINFO "$XDG_DATA_HOME"/terminfo
+set -gx TERMINFO_DIRS "$XDG_DATA_HOME"/terminfo:/usr/share/terminfo
 
 ## Set Path ##
 fish_add_path -p "$HOME"/.local/bin
