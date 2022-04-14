@@ -81,6 +81,7 @@ pacman -S --needed --noconfirm kitty thunderbird libreoffice discord btop neofet
 pacman -S --needed --noconfirm gnome-shell gnome-backgrounds gnome-color-manager gnome-control-centre gnome-menus gnome-screenshot gnome-terminal gnome-text-editor gnome-shell-extensions gnome-themes-extra gnome-tweaks gnome-weather xdg-desktop-portal-gnome gdm
 pacman -S --needed --noconfirm dconf-editor eog evince file-roller nautilus simple-scan gnome-disk-utility
 systemctl enable gdm.service
+ln -s /dev/null /etc/udev/rules.d/61-gdm.rules
 
 ## Printing tools
 pacman -S --needed --noconfirm cups hplip system-config-printer python-pyqt5
