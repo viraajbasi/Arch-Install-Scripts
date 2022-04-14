@@ -23,7 +23,7 @@ mv config.fish ~/.config/fish/config.fish
 
 ## Environment variables for wayland
 mkdir -p ~/.config/environment.d/
-echo -e "GDK_BACKEND=wayland\nQT_QPA_PLATFORMTHEME=\"wayland;xcb\"\nCLUTTER_BACKEND=wayland\nSDL_VIDEODRIVER=wayland\nGBM_BACKEND=nvidia-drm\n__GLX_VENDOR_LIBRARY_NAME=nvidia" >> ~/.config/environment.d/envvars.conf
+echo -e "QT_QPA_PLATFORMTHEME=\"wayland;xcb\"\nCLUTTER_BACKEND=wayland\nSDL_VIDEODRIVER=wayland\nGBM_BACKEND=nvidia-drm\n__GLX_VENDOR_LIBRARY_NAME=nvidia" >> ~/.config/environment.d/envvars.conf
 
 ## Configure neovim
 mkdir -p ~/.config/nvim
