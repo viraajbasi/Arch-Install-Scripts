@@ -74,7 +74,7 @@ pacman -S --needed --noconfirm kitty thunderbird libreoffice discord btop neofet
 
 ## Plasma desktop
 # pacman -S --needed --noconfirm sddm plasma packagekit-qt5 libdbusmenu-glib appmenu-gtk-module latte-dock kvantum plasma-wayland-session xdg-desktop-portal-kde
-# pacman -S --needed --noconfirm ark notepadqq dolphin dolphin-plugins gwenview partitionmanager okular
+# pacman -S --needed --noconfirm ark notepadqq dolphin dolphin-plugins gwenview partitionmanager okular print-manager skanlite spectacle
 # systemctl enable sddm.service
 
 ## Gnome desktop
