@@ -24,3 +24,5 @@ export WGETRC="$XDG_CONFIG_HOME"/wgetrc
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export TERMINFO="$XDG_DATA_HOME"/terminfo
 export TERMINFO_DIRS="$XDG_DATA_HOME"/terminfo:/usr/share/terminfo
+export GTK_RC_FILES="$XDG_CONFIG_HOME"/gtk-1.0/gtkrc
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc

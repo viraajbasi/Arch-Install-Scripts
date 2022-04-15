@@ -26,7 +26,8 @@ set -gx EDITOR nvim
 set -gx RUSTUP_HOME "$XDG_DATA_HOME"/rustup
 set -gx TERMINFO "$XDG_DATA_HOME"/terminfo
 set -gx TERMINFO_DIRS "$XDG_DATA_HOME"/terminfo:/usr/share/terminfo
-
+set -gx GTK_RC_FILES "$XDG_CONFIG_HOME"/gtk-1.0/gtkrc
+set -gx GTK2_RC_FILES "$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 ## Set Path ##
 fish_add_path -p "$HOME"/.local/bin
 
