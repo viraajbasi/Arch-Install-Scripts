@@ -16,11 +16,6 @@ curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install 
 mkdir -p ~/.config/fish
 mv config.fish ~/.config/fish/config.fish
 
-## Configure zsh
-# sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-# mv .zshrc $ZDOTDIR/.zshrc
-# mv .zshenv $ZDOTDIR/.zshenv
-
 ## Environment variables for wayland
 mkdir -p ~/.config/environment.d/
 echo -e "QT_QPA_PLATFORMTHEME=\"wayland;xcb\"\nCLUTTER_BACKEND=wayland\nSDL_VIDEODRIVER=wayland\nGBM_BACKEND=nvidia-drm\n__GLX_VENDOR_LIBRARY_NAME=nvidia\nMOZ_ENABLE_WAYLAND=1" >> ~/.config/environment.d/envvars.conf

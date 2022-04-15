@@ -13,7 +13,6 @@ HOSTNAME="arch"
 ROOTPASSWD="password"
 USERNAME="viraaj"
 USERPASSWD="password"
-USERSHELL="fish"
 
 ## Set timezone and sync hardware clock
 timedatectl set-ntp true
@@ -43,14 +42,11 @@ echo "$USERNAME:$USERPASSWD" | chpasswd
 
 ## Allow multilib installation, run full system upgrade, and install base packages
 sed -i "93,94s/#//;36,37s/#//;33s/#//;38iILoveCandy" /etc/pacman.conf
-pacman -Syu --needed --noconfirm networkmanager efibootmgr man-db inetutils wget reflector dosfstools mtools ntfs-3g exfat-utils bluez bluez-utils firewalld pipewire pipewire-pulse pipewire-jack pipewire-alsa openssh which $USERSHELL
+pacman -Syu --needed --noconfirm networkmanager efibootmgr man-db inetutils wget reflector dosfstools mtools ntfs-3g exfat-utils bluez bluez-utils firewalld pipewire pipewire-pulse pipewire-jack pipewire-alsa openssh which fish
 systemctl enable NetworkManager.service bluetooth.service firewalld.service sshd.service
 echo -e "--save /etc/pacman.d/mirrorlist\n--country 'United Kingdom'\n--protocol https\n--latest 5\n --sort age" > /etc/xdg/reflector/reflector.conf
 systemctl enable reflector.timer
-
-## Set default shell
-usermod -s $(which $USERSHELL) $USERNAME
-# echo -e "export ZDOTDIR=\"$HOME\"/.config/zsh" >> /etc/zshenv 
+usermod -s $(which fish) $USERNAME
 
 ## Nvidia drivers
 pacman -S --needed --noconfirm nvidia-dkms nvidia-utils nvidia-settings lib32-nvidia-utils opencl-nvidia lib32-opencl-nvidia libglvnd lib32-libglvnd

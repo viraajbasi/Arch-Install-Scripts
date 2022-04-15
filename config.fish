@@ -28,6 +28,14 @@ set -gx TERMINFO "$XDG_DATA_HOME"/terminfo
 set -gx TERMINFO_DIRS "$XDG_DATA_HOME"/terminfo:/usr/share/terminfo
 set -gx GTK_RC_FILES "$XDG_CONFIG_HOME"/gtk-1.0/gtkrc
 set -gx GTK2_RC_FILES "$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+set -gx KDEHOME "$XDG_CONFIG_HOME"/kde
+set -gx QT_QPA_PLATFORM "wayland;xcb"
+set -gx CLUTTER_BACKEND wayland
+set -gx SDL_VIDEODRIVER wayland
+set -gx GBM_BACKEND nvidia-drm
+set -gx __GLX_VENDOR_LIBRARY_NAME nvidia
+set -gx MOZ_ENABLE_WAYLAND 1
+
 ## Set Path ##
 fish_add_path -p "$HOME"/.local/bin
 
@@ -68,3 +76,4 @@ alias ssh "kitty +kitten ssh"
 alias solo "$HOME/Games/GTASoloSession.sh"
 alias vmgroups "$HOME/src/groups.sh"
 alias vmusb "$HOME/src/usb.sh"
+
