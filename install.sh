@@ -69,7 +69,7 @@ mkinitcpio -P
 pacman -S --needed --noconfirm kitty thunderbird libreoffice discord btop neofetch gnome-calculator mpv ncdu obs-studio steam lutris gnome-keyring gamemode lib32-gamemode xorg-server wayland xwayland noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-liberation ttf-font-awesome ttf-fira-code nerd-fonts-fira-code piper dotnet-runtime dotnet-sdk dotnet-host dotnet-targeting-pack python nodejs npm mono mono-msbuild aspnet-runtime github-cli rust rust-src neovim qt5-wayland eog
 
 ## Plasma desktop
-# pacman -S --needed --noconfirm sddm plasma packagekit-qt5 libdbusmenu-glib appmenu-gtk-module latte-dock kvantum plasma-wayland-session xdg-desktop-portal-kde
+# pacman -S --needed --noconfirm sddm plasma packagekit-qt5 libdbusmenu-glib appmenu-gtk-module latte-dock kvantum plasma-wayland-session xdg-desktop-portal-kde libappindicator-gtk3
 # pacman -S --needed --noconfirm ark notepadqq dolphin dolphin-plugins partitionmanager okular print-manager skanlite spectacle
 # systemctl enable sddm.service
 
