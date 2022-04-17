@@ -51,7 +51,7 @@ wget https://dot.net/v1/dotnet-install.sh -O ~/.local/bin/dotnet-install
 yay -S gnome-text-editor gnome-shell-extension-pop-shell-git chrome-gnome-shell adw-gtk3
 
 ## AUR Packages
-yay -S --needed --noconfirm papirus-libreoffice-theme minigalaxy itch-setup-bin minecraft-launcher mangohud noisetorch extramaus downgrade unityhub rider visual-studio-code-insiders-bin ttf-google-sans pfetch openrgb
+yay -S --needed --noconfirm papirus-libreoffice-theme minigalaxy itch-setup-bin minecraft-launcher mangohud noisetorch extramaus downgrade unityhub rider visual-studio-code-insiders-bin ttf-google-sans pfetch openrgb papirus-libreoffice-theme
 
 echo "Run ':PlugInstall' inside neovim to complete vim-plug installation"
 echo "Run hp-setup [ip address of printer] to set up wireless printer"
