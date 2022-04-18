@@ -37,17 +37,20 @@ echo -e "title\tArch Linux\nlinux\t/vmlinuz-linux-zen\ninitrd\t/amd-ucode.img\ni
 ## Add and configure users
 echo "root:$ROOTPASSWD" | chpasswd
 sed -i "82s/# //" /etc/sudoers
-useradd -mG wheel,sys,adm,games,ftp,http,floppy,optical,storage,lp,scanner,libvirt $NAME
+useradd -mG wheel,sys,adm,games,ftp,http,floppy,optical,storage,lp,scanner $NAME
 echo "$NAME:$PASSWORD" | chpasswd
 
 ## Allow multilib installation, run full system upgrade, and install packages
 sed -i "93,94s/#//;36,37s/#//;33s/#//;38iILoveCandy" /etc/pacman.conf
-yes | pacman -Syu --needed --noconfirm networkmanager efibootmgr man-db inetutils wget reflector dosfstools mtools ntfs-3g exfat-utils bluez bluez-utils firewalld pipewire pipewire-pulse pipewire-jack pipewire-alsa openssh which fish alacritty thunderbird libreoffice discord btop neofetch gnome-calculator mpv ncdu obs-studio steam lutris gnome-keyring gamemode lib32-gamemode xorg-server wayland xwayland noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-liberation ttf-font-awesome ttf-fira-code nerd-fonts-fira-code piper dotnet-runtime dotnet-sdk dotnet-host dotnet-targeting-pack python nodejs npm mono mono-msbuild aspnet-runtime github-cli rust rust-src neovim qt5-wayland ttf-ubuntu-font-family baobab eom papirus-icon-theme qt6-wayland qt5ct qt6ct kvantum rhythmbox dconf-editor file-roller nautilus simple-scan gnome-disk-utility evince gnome-shell gnome-backgrounds gnome-color-manager gnome-control-center gnome-menus gnome-screenshot gnome-terminal gnome-shell-extensions gnome-themes-extra gnome-tweaks xdg-desktop-portal-gnome gdm cups hplip system-config-printer python-pyqt5 samba qemu libvirt iptables-nft virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat libguestfs swtpm ovmf
-echo -e "--save /etc/pacman.d/mirrorlist\n--country 'United Kingdom'\n--protocol https\n--latest 5\n --sort age" > /etc/xdg/reflector/reflector.conf
+pacman -Syu --needed --noconfirm networkmanager efibootmgr man-db inetutils wget reflector dosfstools mtools ntfs-3g exfat-utils bluez bluez-utils firewalld pipewire pipewire-pulse pipewire-jack pipewire-alsa openssh which fish alacritty thunderbird libreoffice discord btop neofetch gnome-calculator mpv ncdu obs-studio steam lutris gnome-keyring gamemode lib32-gamemode xorg-server wayland xwayland noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-liberation ttf-font-awesome ttf-fira-code piper dotnet-runtime dotnet-sdk dotnet-host dotnet-targeting-pack python nodejs npm mono mono-msbuild aspnet-runtime github-cli rust rust-src neovim qt5-wayland ttf-ubuntu-font-family baobab eom papirus-icon-theme qt6-wayland qt5ct qt6ct kvantum rhythmbox dconf-editor file-roller nautilus simple-scan gnome-disk-utility evince gnome-shell gnome-backgrounds gnome-color-manager gnome-control-center gnome-menus gnome-screenshot gnome-terminal gnome-shell-extensions gnome-themes-extra gnome-tweaks xdg-desktop-portal-gnome gdm cups hplip system-config-printer python-pyqt5 samba qemu libvirt virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat libguestfs swtpm ovmf
+yes | pacman -S iptables-nft
+usermod -aG libvirt $NAME
+echo -e "--save /etc/pacman.d/mirrorlist\n--country 'United Kingdom'\n--protocol https\n--latest 5\n--sort age" > /etc/xdg/reflector/reflector.conf
 ln -s /dev/null /etc/udev/rules.d/61-gdm.rules
 echo -e "[global]\nserver string = File Server\nworkgroup = HOME\nsecurity = user\nmap to guest = bad user\nguest account = nobody\nname resolve order = bcast host\nlogging = systemd\nhide unreadable = yes\nvfs object = fruit streams_xattr" >> /etc/samba/smb.conf
 systemctl enable NetworkManager.service bluetooth.service firewalld.service sshd.service gdm.service reflector.timer cups.socket smb.service nmb.service libvirtd.service
 usermod -s $(which fish) $NAME
+(echo "$PASSWORD"; echo "$PASSWORD") | smbpasswd -s -a "$NAME"
 
 ## Nvidia drivers
 pacman -S --needed --noconfirm nvidia-dkms nvidia-utils nvidia-settings lib32-nvidia-utils opencl-nvidia lib32-opencl-nvidia libglvnd lib32-libglvnd

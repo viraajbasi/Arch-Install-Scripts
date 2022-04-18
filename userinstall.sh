@@ -5,7 +5,6 @@ mkdir -p $HOME/.config/alacritty
 mv alacritty.yml $HOME/.config/alacritty/alacritty.yml
 
 ## Configure fish
-curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 mkdir -p $HOME/.config/fish
 mv config.fish $HOME/.config/fish/config.fish
 
@@ -30,8 +29,6 @@ mv *.desktop $HOME/.local/share/applications
 
 ## User binaries
 mkdir -p $HOME/.local/bin
-wget https://dot.net/v1/dotnet-install.sh -O $HOME/.local/bin/dotnet-install
-chmod +x $HOME/.local/bin/dotnet-install
 mv gscript $HOME/.local/bin/gscript
 
 ## Install yay
@@ -41,7 +38,7 @@ makepkg -si --noconfirm
 rm -rf $HOME/gitrepos
 
 ## AUR Packages
-yay -S --needed --noconfirm papirus-libreoffice-theme minigalaxy itch-setup-bin minecraft-launcher mangohud noisetorch extramaus downgrade unityhub rider visual-studio-code-insiders-bin ttf-google-sans pfetch openrgb papirus-libreoffice-theme gnome-text-editor gnome-shell-extension-pop-shell-git chrome-gnome-shell adw-gtk3 gnome-shell-extension-openweather-git gnome-shell-extension-dash-to-dock
+yay -S --needed --noconfirm papirus-libreoffice-theme minigalaxy itch-setup-bin minecraft-launcher mangohud noisetorch extramaus downgrade unityhub rider visual-studio-code-insiders-bin ttf-google-sans pfetch openrgb papirus-libreoffice-theme gnome-text-editor gnome-shell-extension-pop-shell-git chrome-gnome-shell adw-gtk3 gnome-shell-extension-openweather-git gnome-shell-extension-dash-to-dock nerd-fonts-fira-code
 
 echo "Run hp-setup [ip address of printer] to set up wireless printer"
 echo "Authenticate github using github cli"
