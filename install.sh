@@ -42,9 +42,9 @@ echo "$NAME:$PASSWORD" | chpasswd
 
 ## Allow multilib installation, run full system upgrade, and install packages
 sed -i "93,94s/#//;36,37s/#//;33s/#//;38iILoveCandy" /etc/pacman.conf
-pacman -Syu --needed --noconfirm networkmanager efibootmgr man-db inetutils wget reflector dosfstools mtools ntfs-3g bluez bluez-utils firewalld pipewire pipewire-pulse pipewire-jack pipewire-alsa openssh which fish alacritty thunderbird libreoffice discord btop neofetch gnome-calculator mpv ncdu obs-studio steam lutris gnome-keyring gamemode lib32-gamemode xorg-server wayland xorg-xwayland noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-liberation ttf-font-awesome ttf-fira-code piper dotnet-runtime dotnet-sdk dotnet-host dotnet-targeting-pack python nodejs npm mono mono-msbuild aspnet-runtime github-cli rust rust-src neovim qt5-wayland ttf-ubuntu-font-family baobab eom papirus-icon-theme qt6-wayland qt5ct qt6ct kvantum rhythmbox dconf-editor file-roller nautilus simple-scan gnome-disk-utility evince gnome-shell gnome-backgrounds gnome-color-manager gnome-control-center gnome-menus gnome-screenshot gnome-terminal gnome-shell-extensions gnome-themes-extra gnome-tweaks xdg-desktop-portal-gnome gdm cups hplip system-config-printer python-pyqt5 samba qemu libvirt virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat libguestfs swtpm ovmf
+pacman -Syu --needed --noconfirm networkmanager efibootmgr man-db inetutils wget reflector dosfstools mtools ntfs-3g bluez bluez-utils firewalld pipewire pipewire-pulse pipewire-jack pipewire-alsa openssh which fish alacritty thunderbird libreoffice discord btop neofetch gnome-calculator mpv ncdu obs-studio steam lutris gnome-keyring gamemode lib32-gamemode xorg-server wayland xorg-xwayland noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-liberation ttf-font-awesome ttf-fira-code piper dotnet-runtime dotnet-sdk dotnet-host dotnet-targeting-pack python nodejs npm mono mono-msbuild aspnet-runtime github-cli rust rust-src neovim qt5-wayland ttf-ubuntu-font-family baobab eom papirus-icon-theme qt6-wayland qt5ct qt6ct kvantum rhythmbox dconf-editor file-roller nautilus simple-scan gnome-disk-utility evince gnome-shell gnome-backgrounds gnome-color-manager gnome-control-center gnome-menus gnome-screenshot gnome-terminal gnome-shell-extensions gnome-themes-extra gnome-tweaks xdg-desktop-portal-gnome gdm cups hplip system-config-printer python-pyqt5 samba qemu libvirt virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat libguestfs swtpm ovmf starship virtualbox virtualbox-host-dkms virtualbox-guest-iso
 yes | pacman -S iptables-nft
-usermod -aG libvirt $NAME
+usermod -aG libvirt,vboxusers $NAME
 echo -e "--save /etc/pacman.d/mirrorlist\n--country 'United Kingdom'\n--protocol https\n--latest 5\n--sort age" > /etc/xdg/reflector/reflector.conf
 ln -s /dev/null /etc/udev/rules.d/61-gdm.rules
 echo -e "[global]\nserver string = File Server\nworkgroup = HOME\nsecurity = user\nmap to guest = bad user\nguest account = nobody\nname resolve order = bcast host\nlogging = systemd\nhide unreadable = yes\nvfs object = fruit streams_xattr" >> /etc/samba/smb.conf
@@ -60,13 +60,5 @@ mkdir -p /etc/pacman.d/hooks
 echo -e "[Trigger]\nOperation=Install\nOperation=Upgrade\nOperation=Remove\nType=Package\nTarget=nvidia-dkms\n\n[Action]\nDepends=mkinitcpio\nWhen=PostTransaction\nExec=/usr/bin/mkinitcpio -P" >> /etc/pacman.d/hooks/nvidia.hook
 echo -e "ACTION==\"add\", DEVPATH==\"/bus/pci/drivers/nvidia\", RUN+=\"/usr/bin/nvidia-modprobe -c0 -u\"" >> /etc/udev/rules.d/70-nvidia.rules
 mkinitcpio -P
-
-## VirtualBox VM tools
-# pacman -S --needed --noconfirm virtualbox-guest-utils xf86-video-vmware
-# systemctl enable vboxservice.service
-
-## VMWare VM tools
-# pacman -S --needed --noconfirm open-vm-tools gtkmm3 xf86-video-vmware
-# systemctl enable vmtoolsd.service vmware-vmblock-fuse.service
 
 echo "Please reboot and log into the $NAME account."
