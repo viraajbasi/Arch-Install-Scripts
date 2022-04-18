@@ -1,11 +1,11 @@
 window:
-  padding:
-    x: 5
-    y: 5
   class:
     instance: Alacritty
     general: Alacritty
   opacity: 1.0
+  dimensions:
+    columns: 133
+    lines: 40
 
 scrolling:
   history: 10000
