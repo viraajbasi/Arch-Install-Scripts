@@ -14,7 +14,7 @@ scrolling:
 font:
   normal:
     family: FiraCode Nerd Font
-    style: Normal
+    style: Regular
   bold:
     family: FiraCode Nerd Font
     style: Bold
