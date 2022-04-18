@@ -74,7 +74,7 @@ pacman -S --needed --noconfirm kitty thunderbird libreoffice discord btop neofet
 # systemctl enable sddm.service
 
 ## Gnome desktop
-# pacman -S --needed --noconfirm gnome-shell gnome-backgrounds gnome-color-manager gnome-control-center gnome-menus gnome-screenshot gnome-terminal gnome-shell-extensions gnome-themes-extra gnome-tweaks gnome-weather xdg-desktop-portal-gnome gdm
+# pacman -S --needed --noconfirm gnome-shell gnome-backgrounds gnome-color-manager gnome-control-center gnome-menus gnome-screenshot gnome-terminal gnome-shell-extensions gnome-themes-extra gnome-tweaks xdg-desktop-portal-gnome gdm
 # pacman -S --needed --noconfirm dconf-editor file-roller nautilus simple-scan gnome-disk-utility evince
 # systemctl enable gdm.service
 # ln -s /dev/null /etc/udev/rules.d/61-gdm.rules
