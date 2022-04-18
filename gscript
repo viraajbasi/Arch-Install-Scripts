@@ -1,0 +1,12 @@
+#!/bin/bash
+if [ -d .git ]; then
+    echo "Enter commit message (do not include quotes)."
+    read commitMessage
+    git add .
+    git commit -m "$commitMessage"
+    git push origin master
+
+else
+    echo "Not a git repo."
+    git rev-parse --git-dir 2> /dev/null;
+fi;

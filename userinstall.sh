@@ -36,10 +36,11 @@ makepkg -si --noconfirm
 ## Remove $HOME/gitrepos
 rm -rf $HOME/gitrepos
 
-## Dotnet
+## User binaries
 mkdir -p $HOME/.local/bin
 wget https://dot.net/v1/dotnet-install.sh -O $HOME/.local/bin/dotnet-install
 chmod +x $HOME/.local/bin/dotnet-install
+mv gscript $HOME/.local/bin/gscript
 
 ## AUR Packages
 yay -S --needed --noconfirm papirus-libreoffice-theme minigalaxy itch-setup-bin minecraft-launcher mangohud noisetorch extramaus downgrade unityhub rider visual-studio-code-insiders-bin ttf-google-sans pfetch openrgb papirus-libreoffice-theme gnome-text-editor gnome-shell-extension-pop-shell-git chrome-gnome-shell adw-gtk3 gnome-shell-extension-openweather-git gnome-shell-extension-dash-to-dock
