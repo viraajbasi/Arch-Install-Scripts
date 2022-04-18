@@ -40,8 +40,6 @@ alias lsaur "yay -Qm"
 alias lsall "yay -Q"
 alias lsinst "yay -Qe"
 
-alias ssh "kitty +kitten ssh"
-
 alias solo "$HOME/Games/GTASoloSession.sh"
 alias vmgroups "$HOME/src/groups.sh"
 alias vmusb "$HOME/src/usb.sh"
