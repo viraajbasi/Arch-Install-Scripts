@@ -37,15 +37,16 @@ echo -e "title\tArch Linux\nlinux\t/vmlinuz-linux-zen\ninitrd\t/amd-ucode.img\ni
 ## Add and configure users
 echo "root:$ROOTPASSWD" | chpasswd
 sed -i "82s/# //" /etc/sudoers
-useradd -mG wheel,sys,adm,games,ftp,http,floppy,optical,storage $USERNAME
+useradd -mG wheel,sys,adm,games,ftp,http,floppy,optical,storage,lp,scanner,libvirt $USERNAME
 echo "$USERNAME:$USERPASSWD" | chpasswd
 
-## Allow multilib installation, run full system upgrade, and install base packages
+## Allow multilib installation, run full system upgrade, and install packages
 sed -i "93,94s/#//;36,37s/#//;33s/#//;38iILoveCandy" /etc/pacman.conf
-pacman -Syu --needed --noconfirm networkmanager efibootmgr man-db inetutils wget reflector dosfstools mtools ntfs-3g exfat-utils bluez bluez-utils firewalld pipewire pipewire-pulse pipewire-jack pipewire-alsa openssh which fish
-systemctl enable NetworkManager.service bluetooth.service firewalld.service sshd.service
+yes | pacman -Syu --needed --noconfirm networkmanager efibootmgr man-db inetutils wget reflector dosfstools mtools ntfs-3g exfat-utils bluez bluez-utils firewalld pipewire pipewire-pulse pipewire-jack pipewire-alsa openssh which fish alacritty thunderbird libreoffice discord btop neofetch gnome-calculator mpv ncdu obs-studio steam lutris gnome-keyring gamemode lib32-gamemode xorg-server wayland xwayland noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-liberation ttf-font-awesome ttf-fira-code nerd-fonts-fira-code piper dotnet-runtime dotnet-sdk dotnet-host dotnet-targeting-pack python nodejs npm mono mono-msbuild aspnet-runtime github-cli rust rust-src neovim qt5-wayland ttf-ubuntu-font-family baobab eom papirus-icon-theme qt6-wayland qt5ct qt6ct kvantum rhythmbox dconf-editor file-roller nautilus simple-scan gnome-disk-utility evince gnome-shell gnome-backgrounds gnome-color-manager gnome-control-center gnome-menus gnome-screenshot gnome-terminal gnome-shell-extensions gnome-themes-extra gnome-tweaks xdg-desktop-portal-gnome gdm cups hplip system-config-printer python-pyqt5 samba qemu libvirt iptables-nft virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat libguestfs swtpm ovmf
 echo -e "--save /etc/pacman.d/mirrorlist\n--country 'United Kingdom'\n--protocol https\n--latest 5\n --sort age" > /etc/xdg/reflector/reflector.conf
-systemctl enable reflector.timer
+ln -s /dev/null /etc/udev/rules.d/61-gdm.rules
+echo -e "[global]\nserver string = File Server\nworkgroup = HOME\nsecurity = user\nmap to guest = bad user\nguest account = nobody\nname resolve order = bcast host\nlogging = systemd\nhide unreadable = yes\nvfs object = fruit streams_xattr" >> /etc/samba/smb.conf
+systemctl enable NetworkManager.service bluetooth.service firewalld.service sshd.service gdm.service reflector.timer cups.socket smb.service nmb.service libvirtd.service
 usermod -s $(which fish) $USERNAME
 
 ## Nvidia drivers
@@ -64,29 +65,5 @@ mkinitcpio -P
 ## VMWare VM tools
 # pacman -S --needed --noconfirm open-vm-tools gtkmm3 xf86-video-vmware
 # systemctl enable vmtoolsd.service vmware-vmblock-fuse.service
-
-## Desktop applications
-pacman -S --needed --noconfirm kitty thunderbird libreoffice discord btop neofetch gnome-calculator mpv ncdu obs-studio steam lutris gnome-keyring gamemode lib32-gamemode xorg-server wayland xwayland noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-liberation ttf-font-awesome ttf-fira-code nerd-fonts-fira-code piper dotnet-runtime dotnet-sdk dotnet-host dotnet-targeting-pack python nodejs npm mono mono-msbuild aspnet-runtime github-cli rust rust-src neovim qt5-wayland ttf-ubuntu-font-family baobab eom papirus-icon-theme qt6-wayland qt5ct qt6ct kvantum rhythmbox
-
-## Plasma desktop
-# pacman -S --needed --noconfirm sddm plasma packagekit-qt5 libdbusmenu-glib appmenu-gtk-module latte-dock kvantum plasma-wayland-session xdg-desktop-portal-kde libappindicator-gtk3
-# pacman -S --needed --noconfirm ark notepadqq dolphin dolphin-plugins partitionmanager print-manager skanlite spectacle okular
-# systemctl enable sddm.service
-
-## Gnome desktop
-# pacman -S --needed --noconfirm gnome-shell gnome-backgrounds gnome-color-manager gnome-control-center gnome-menus gnome-screenshot gnome-terminal gnome-shell-extensions gnome-themes-extra gnome-tweaks xdg-desktop-portal-gnome gdm
-# pacman -S --needed --noconfirm dconf-editor file-roller nautilus simple-scan gnome-disk-utility evince
-# systemctl enable gdm.service
-# ln -s /dev/null /etc/udev/rules.d/61-gdm.rules
-
-## Printing tools
-pacman -S --needed --noconfirm cups hplip system-config-printer python-pyqt5
-systemctl enable cups.socket
-usermod -aG lp,scanner $USERNAME
-
-## Virtualisation using qemu and libvirt
-yes | pacman -S --needed qemu libvirt iptables-nft virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat libguestfs swtpm ovmf
-systemctl enable libvirtd.service
-usermod -aG libvirt $USERNAME
 
 echo "Please reboot and log into the $USERNAME account."
