@@ -28,19 +28,17 @@ mv starship.toml $HOME/.config/starship.toml
 mkdir -p $HOME/.local/share/applications
 mv *.desktop $HOME/.local/share/applications
 
-## Install yay
-git clone https://aur.archlinux.org/yay $HOME/gitrepos/yay
-cd $HOME/gitrepos/yay
-makepkg -si --noconfirm
-
-## Remove $HOME/gitrepos
-rm -rf $HOME/gitrepos
-
 ## User binaries
 mkdir -p $HOME/.local/bin
 wget https://dot.net/v1/dotnet-install.sh -O $HOME/.local/bin/dotnet-install
 chmod +x $HOME/.local/bin/dotnet-install
 mv gscript $HOME/.local/bin/gscript
+
+## Install yay
+git clone https://aur.archlinux.org/yay $HOME/gitrepos/yay
+cd $HOME/gitrepos/yay
+makepkg -si --noconfirm
+rm -rf $HOME/gitrepos
 
 ## AUR Packages
 yay -S --needed --noconfirm papirus-libreoffice-theme minigalaxy itch-setup-bin minecraft-launcher mangohud noisetorch extramaus downgrade unityhub rider visual-studio-code-insiders-bin ttf-google-sans pfetch openrgb papirus-libreoffice-theme gnome-text-editor gnome-shell-extension-pop-shell-git chrome-gnome-shell adw-gtk3 gnome-shell-extension-openweather-git gnome-shell-extension-dash-to-dock

@@ -11,8 +11,8 @@
 ROOTPART="/dev/sda2"
 HOSTNAME="arch"
 ROOTPASSWD="password"
-USERNAME="viraaj"
-USERPASSWD="password"
+NAME="viraaj"
+PASSWORD="password"
 
 ## Set timezone and sync hardware clock
 timedatectl set-ntp true
@@ -37,8 +37,8 @@ echo -e "title\tArch Linux\nlinux\t/vmlinuz-linux-zen\ninitrd\t/amd-ucode.img\ni
 ## Add and configure users
 echo "root:$ROOTPASSWD" | chpasswd
 sed -i "82s/# //" /etc/sudoers
-useradd -mG wheel,sys,adm,games,ftp,http,floppy,optical,storage,lp,scanner,libvirt $USERNAME
-echo "$USERNAME:$USERPASSWD" | chpasswd
+useradd -mG wheel,sys,adm,games,ftp,http,floppy,optical,storage,lp,scanner,libvirt $NAME
+echo "$NAME:$PASSWORD" | chpasswd
 
 ## Allow multilib installation, run full system upgrade, and install packages
 sed -i "93,94s/#//;36,37s/#//;33s/#//;38iILoveCandy" /etc/pacman.conf
@@ -47,7 +47,7 @@ echo -e "--save /etc/pacman.d/mirrorlist\n--country 'United Kingdom'\n--protocol
 ln -s /dev/null /etc/udev/rules.d/61-gdm.rules
 echo -e "[global]\nserver string = File Server\nworkgroup = HOME\nsecurity = user\nmap to guest = bad user\nguest account = nobody\nname resolve order = bcast host\nlogging = systemd\nhide unreadable = yes\nvfs object = fruit streams_xattr" >> /etc/samba/smb.conf
 systemctl enable NetworkManager.service bluetooth.service firewalld.service sshd.service gdm.service reflector.timer cups.socket smb.service nmb.service libvirtd.service
-usermod -s $(which fish) $USERNAME
+usermod -s $(which fish) $NAME
 
 ## Nvidia drivers
 pacman -S --needed --noconfirm nvidia-dkms nvidia-utils nvidia-settings lib32-nvidia-utils opencl-nvidia lib32-opencl-nvidia libglvnd lib32-libglvnd
@@ -66,4 +66,4 @@ mkinitcpio -P
 # pacman -S --needed --noconfirm open-vm-tools gtkmm3 xf86-video-vmware
 # systemctl enable vmtoolsd.service vmware-vmblock-fuse.service
 
-echo "Please reboot and log into the $USERNAME account."
+echo "Please reboot and log into the $NAME account."
