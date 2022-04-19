@@ -62,3 +62,4 @@ set -gx TERMINFO_DIRS "$XDG_DATA_HOME"/terminfo:/usr/share/terminfo
 set -gx GTK_RC_FILES "$XDG_CONFIG_HOME"/gtk-1.0/gtkrc
 set -gx GTK2_RC_FILES "$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 set -gx KDEHOME "$XDG_CONFIG_HOME"/kde
+set -x MANPAGER "nvim +Man!"
