@@ -30,6 +30,9 @@ mv *.desktop $HOME/.local/share/applications
 ## User binaries
 mkdir -p $HOME/.local/bin
 mv gscript $HOME/.local/bin/gscript
+mv libvirt-groups $HOME/.local/bin/libvirt-groups
+mv libvirt-usb $HOME/.local/bin/libvirt-usb
+mv solo-session $HOME/.local/bin/solo-session
 
 ## Install yay
 git clone https://aur.archlinux.org/yay $HOME/gitrepos/yay

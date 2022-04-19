@@ -40,10 +40,6 @@ alias lsaur "yay -Qm"
 alias lsall "yay -Q"
 alias lsinst "yay -Qe"
 
-alias solo "$HOME/Games/GTASoloSession.sh"
-alias vmgroups "$HOME/src/groups.sh"
-alias vmusb "$HOME/src/usb.sh"
-
 ## Environment Variables ##
 set -gx XDG_CONFIG_HOME "$HOME"/.config
 set -gx XDG_CACHE_HOME "$HOME"/.cache
