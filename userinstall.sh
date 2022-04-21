@@ -1,5 +1,7 @@
 #!/bin/bash
 
+xdg-user-dirs-update
+
 ## Configure alacritty
 mkdir -p $HOME/.config/alacritty
 mv alacritty.yml $HOME/.config/alacritty/alacritty.yml
@@ -11,6 +13,10 @@ mv config.fish $HOME/.config/fish/config.fish
 ## Environment variables for wayland
 mkdir -p $HOME/.config/environment.d/
 echo -e "QT_QPA_PLATFORM=\"wayland;xcb\"\nCLUTTER_BACKEND=wayland\nSDL_VIDEODRIVER=wayland\nGBM_BACKEND=nvidia-drm\n__GLX_VENDOR_LIBRARY_NAME=nvidia\nMOZ_ENABLE_WAYLAND=1\nQT_QPA_PLATFORMTHEME=qt5ct" >> $HOME/.config/environment.d/envvars.conf
+echo -e "--enable-features=UseOzonePlatform,WaylandWindowDecorations\n--ozone-platform=wayland\n--no-sandbox\n--disable-gpu" >> $HOME/.config/electron-flags.conf
+ln -s $HOME/.config/electron-flags.conf $HOME/.config/electron-16-flags.conf
+ln -s $HOME/.config/electron-flags.conf $HOME/.config/electron17-flags.conf
+ln -s $HOME/.config/electron-flags.conf $HOME/.config/code-flags.conf
 
 ## Configure neovim
 mkdir -p $HOME/.config/nvim
