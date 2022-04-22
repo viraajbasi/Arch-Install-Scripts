@@ -68,5 +68,5 @@ set -gx CLUTTER_BACKEND
 set -gx GBM_BACKEND nvidia-drm
 set -gx __GLX_VENDOR_LIBRARY_NAME nvidia
 set -gx MOZ_ENABLE_WAYLAND 1
-set -gx QT_QPA_PLATFORMTHEME qt5ct
+set -gx QT_STYLE_OVERRIDE kvantum
 set -x MANPAGER "nvim +Man!"

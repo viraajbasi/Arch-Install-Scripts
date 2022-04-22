@@ -12,8 +12,8 @@ mv config.fish $HOME/.config/fish/config.fish
 
 ## Environment variables for wayland
 mkdir -p $HOME/.config/environment.d/
-echo -e "QT_QPA_PLATFORM=\"wayland;xcb\"\nCLUTTER_BACKEND=wayland\nSDL_VIDEODRIVER=wayland\nGBM_BACKEND=nvidia-drm\n__GLX_VENDOR_LIBRARY_NAME=nvidia\nMOZ_ENABLE_WAYLAND=1\nQT_QPA_PLATFORMTHEME=qt5ct" >> $HOME/.config/environment.d/envvars.conf
-echo -e "--enable-features=UseOzonePlatform,WaylandWindowDecorations\n--ozone-platform=wayland\n--no-sandbox">> $HOME/.config/electron-flags.conf
+mv envvars.conf $HOME/.config/environment.d/envvars.conf
+mv electron-flags.conf $HOME/.config/electron-flags.conf
 ln -s $HOME/.config/electron-flags.conf $HOME/.config/electron-16-flags.conf
 ln -s $HOME/.config/electron-flags.conf $HOME/.config/electron17-flags.conf
 ln -s $HOME/.config/electron-flags.conf $HOME/.config/code-flags.conf
@@ -40,10 +40,15 @@ mv libvirt-groups $HOME/.local/bin/libvirt-groups
 mv libvirt-usb $HOME/.local/bin/libvirt-usb
 mv solo-session $HOME/.local/bin/solo-session
 
-## Install yay
+## Git
 git clone https://aur.archlinux.org/yay $HOME/gitrepos/yay
 cd $HOME/gitrepos/yay
 makepkg -si --noconfirm
+git clone https://github.com/GabePoel/KvLibadwaita $HOME/gitrepos/KvLibadwaita
+cd $HOME/gitrepos/KvLibadwaita
+chmod +x install.sh
+yes | ./install.sh
+kvantummanager -set KvLibadwaitaDark
 rm -rf $HOME/gitrepos
 
 ## AUR Packages
