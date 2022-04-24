@@ -14,7 +14,6 @@ mv config.fish $HOME/.config/fish/config.fish
 mkdir -p $HOME/.config/environment.d/
 mv envvars.conf $HOME/.config/environment.d/envvars.conf
 mv electron-flags.conf $HOME/.config/electron-flags.conf
-ln -s $HOME/.config/electron-flags.conf $HOME/.config/electron-16-flags.conf
 ln -s $HOME/.config/electron-flags.conf $HOME/.config/electron17-flags.conf
 ln -s $HOME/.config/electron-flags.conf $HOME/.config/code-flags.conf
 
