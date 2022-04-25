@@ -17,6 +17,9 @@ mv electron-flags.conf $HOME/.config/electron-flags.conf
 ln -s $HOME/.config/electron-flags.conf $HOME/.config/electron17-flags.conf
 ln -s $HOME/.config/electron-flags.conf $HOME/.config/code-flags.conf
 
+# Disable wayland for electron but leave the variables in place
+ln -s $HOME/.config/electron-flags.conf $HOME/.config/electron-flags.conf.BAK
+
 ## Configure neovim
 mkdir -p $HOME/.config/nvim
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
