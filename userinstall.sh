@@ -42,7 +42,8 @@ rm -rf $HOME/gitrepos
 flatpak install flathub com.obsproject.Studio --assumeyes
 
 ## AUR Packages
-yay -S --needed --noconfirm papirus-libreoffice-theme minigalaxy itch-setup-bin polymc-bin mangohud noisetorch extramaus downgrade rider visual-studio-code-insiders-bin ttf-google-sans pfetch papirus-libreoffice-theme gnome-text-editor gnome-shell-extension-pop-shell-git chrome-gnome-shell adw-gtk3 gnome-shell-extension-openweather-git nerd-fonts-jetbrains-mono
+yay -S --needed --noconfirm papirus-libreoffice-theme minigalaxy itch-setup-bin polymc-bin mangohud noisetorch extramaus downgrade rider visual-studio-code-insiders-bin ttf-google-sans pfetch papirus-libreoffice-theme gnome-text-editor gnome-shell-extension-pop-shell-git chrome-gnome-shell adw-gtk3 gnome-shell-extension-openweather-git nerd-fonts-jetbrains-mono amberol
+
 echo "Run hp-setup [ip address of printer] to set up wireless printer"
 echo "Authenticate github using github cli"
 echo "Set up noisetorch systemd unit"
