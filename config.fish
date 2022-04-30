@@ -10,7 +10,6 @@ fish_add_path -p "$HOME"/.local/bin
 
 ## Aliases ##
 alias weather "curl wttr.in"
-alias starwars "telnet towel.blinkenlights.nl"
 alias btw "neofetch"
 alias ls "ls -ah --color=auto"
 alias ip "ip -c"
