@@ -16,29 +16,19 @@ alias ls "ls -ah --color=auto"
 alias ip "ip -c"
 alias b "btop"
 alias n "nvim"
-alias c "code"
 alias reboot "sudo reboot now"
 alias shutdown "sudo shutdown now"
 alias vmstart "virsh start win11"
 alias vmstop "virsh destroy win11"
-alias rmdir "rm -rf"
 
 alias clone "git clone"
 alias add "git add"
 alias commit "git commit"
 alias push "git push"
-alias fetch "git fetch"
 alias pull "git pull"
 alias gstat "git status"
 
-alias sysup "echo -e '=== REPO UPDATES ===\n' && yay -Syu && echo -e '\n=== UPDATING OMF ===\n' && omf update"
-alias install "yay -S"
-alias remove "yay -Rcns"
-alias lsorphans "yay -Qtdq"
-alias info "yay -Qi"
-alias lsaur "yay -Qm"
-alias lsall "yay -Q"
-alias lsinst "yay -Qe"
+alias sysup "echo -e '\n=== REPO UPDATES ===\n' && yay -Syu && echo -e '\n=== UPDATING FLATPAKS ===\n' && flatpak upgrade --assumeyes && echo -e '\n=== UPDATING OMF ===\n' && omf update"
 
 ## Environment Variables ##
 set -gx XDG_CONFIG_HOME "$HOME"/.config
@@ -62,11 +52,11 @@ set -gx TERMINFO_DIRS "$XDG_DATA_HOME"/terminfo:/usr/share/terminfo
 set -gx GTK_RC_FILES "$XDG_CONFIG_HOME"/gtk-1.0/gtkrc
 set -gx GTK2_RC_FILES "$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 set -gx KDEHOME "$XDG_CONFIG_HOME"/kde
-set -gx QT_QPA_PLATFORM "wayland;xcb"
-set -gx SDL_VIDEODRIVER wayland
-set -gx CLUTTER_BACKEND
-set -gx GBM_BACKEND nvidia-drm
-set -gx __GLX_VENDOR_LIBRARY_NAME nvidia
-set -gx MOZ_ENABLE_WAYLAND 1
-set -gx QT_STYLE_OVERRIDE kvantum
+#set -gx QT_QPA_PLATFORM wayland
+#set -gx SDL_VIDEODRIVER wayland
+#set -gx CLUTTER_BACKEND wayland
+#set -gx GBM_BACKEND nvidia-drm
+#set -gx __GLX_VENDOR_LIBRARY_NAME nvidia
+#set -gx MOZ_ENABLE_WAYLAND 1
+#set -gx QT_STYLE_OVERRIDE kvantum
 set -x MANPAGER "nvim +Man!"
