@@ -27,7 +27,7 @@ alias push "git push"
 alias pull "git pull"
 alias gstat "git status"
 
-alias sysup "echo -e '\n=== REPO UPDATES ===\n' && yay -Syu && echo -e '\n=== UPDATING FLATPAKS ===\n' && flatpak upgrade --assumeyes && echo -e '\n=== UPDATING OMF ===\n' && omf update"
+alias sysup "echo -e '\n=== REPO UPDATES ===\n' && yay -Syu && echo -e '\n=== UPDATING FLATPAKS ===\n' && flatpak upgrade --assumeyes && echo -e '\n=== UPDATING SNAPS ===\n' && snap refresh && echo -e '\n=== UPDATING OMF ===\n' && omf update"
 
 ## Environment Variables ##
 set -gx XDG_CONFIG_HOME "$HOME"/.config
