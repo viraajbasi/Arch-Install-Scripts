@@ -39,10 +39,13 @@ makepkg -si --noconfirm
 rm -rf $HOME/gitrepos
 
 ## Flatpak
-flatpak install flathub com.obsproject.Studio --assumeyes
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak remote-add --if-not-existsflathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
+flatpak install --assumeyes flathub com.obsproject.Studio com.valvesoftware.Steam com.github.tchx84.Flatseal io.github.sharkwouter.Minigalaxy org.polymc.PolyMC org.gnome.TextEditor com.jetbrains.Rider io.bassi.Amberol
+flatpak install --assumeyes flathub-beta com.visualstudio.code.insiders
 
 ## AUR Packages
-yay -S --needed --noconfirm minigalaxy itch-setup-bin polymc-bin mangohud noisetorch extramaus downgrade rider visual-studio-code-insiders-bin pfetch gnome-text-editor chrome-gnome-shell adw-gtk3 gnome-shell-extension-openweather-git nerd-fonts-jetbrains-mono amberol gnome-shell-extension-tiling-assistant-git brave-bin
+yay -S --needed --noconfirm itch-setup-bin noisetorch downgrade pfetch chrome-gnome-shell adw-gtk3 gnome-shell-extension-openweather-git nerd-fonts-jetbrains-mono gnome-shell-extension-tiling-assistant-git brave-bin
 
 echo "Run hp-setup [ip address of printer] to set up wireless printer"
 echo "Authenticate github using github cli"
