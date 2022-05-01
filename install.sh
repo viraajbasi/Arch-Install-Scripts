@@ -40,8 +40,8 @@ sed -i "82s/# //" /etc/sudoers
 useradd -mG wheel,sys,adm,games,ftp,http,floppy,optical,storage,lp,scanner $NAME
 echo "$NAME:$PASSWORD" | chpasswd
 
-## Allow multilib installation, run full system upgrade, and install packages
-sed -i "93,94s/#//;36,37s/#//;33s/#//;38iILoveCandy" /etc/pacman.conf
+## Run full system upgrade, and install packages
+sed -i "36,37s/#//;33s/#//;38iILoveCandy" /etc/pacman.conf
 pacman -Syu --needed --noconfirm networkmanager efibootmgr man-db inetutils wget reflector dosfstools bluez bluez-utils firewalld pipewire pipewire-pulse pipewire-jack pipewire-alsa openssh which fish alacritty libreoffice discord btop neofetch gnome-calculator mpv ncdu gnome-keyring gamemode lib32-gamemode noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-font-awesome piper dotnet-runtime dotnet-sdk dotnet-host dotnet-targeting-pack python nodejs npm mono mono-msbuild github-cli rust rust-src neovim baobab eog rhythmbox dconf-editor file-roller nautilus simple-scan gnome-disk-utility evince gnome-shell gnome-backgrounds gnome-color-manager gnome-control-center gnome-menus gnome-screenshot gnome-shell-extensions gnome-tweaks gdm cups hplip python-pyqt5 samba qemu libvirt virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat libguestfs swtpm ovmf starship xdg-user-dirs flatpak geary
 yes | pacman -S iptables-nft
 usermod -aG libvirt $NAME
