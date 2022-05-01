@@ -51,6 +51,7 @@ sudo ln -s /var/lib/snapd/snap /snap
 sudo snap install rider --classic
 sudo snap install code-insiders --classic
 sudo snap install teams
+sudo snap install apple-music-for-linux
 
 echo "Run hp-setup [ip address of printer] to set up wireless printer"
 echo "Authenticate github using github cli"
