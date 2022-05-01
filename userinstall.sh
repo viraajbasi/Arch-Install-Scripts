@@ -41,7 +41,7 @@ rm -rf $HOME/gitrepos
 ## Flatpak
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak remote-add --if-not-existsflathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
-flatpak install --assumeyes flathub com.obsproject.Studio com.valvesoftware.Steam com.github.tchx84.Flatseal io.github.sharkwouter.Minigalaxy org.polymc.PolyMC org.gnome.TextEditor com.jetbrains.Rider io.bassi.Amberol
+flatpak install --assumeyes flathub com.obsproject.Studio com.valvesoftware.Steam com.github.tchx84.Flatseal io.github.sharkwouter.Minigalaxy org.polymc.PolyMC org.gnome.TextEditor com.jetbrains.Rider io.bassi.Amberol com.microsoft.Teams
 flatpak install --assumeyes flathub-beta com.visualstudio.code.insiders
 
 ## AUR Packages
