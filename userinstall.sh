@@ -38,14 +38,19 @@ cd $HOME/gitrepos/yay
 makepkg -si --noconfirm
 rm -rf $HOME/gitrepos
 
+## AUR Packages
+yay -S --needed --noconfirm itch-setup-bin noisetorch downgrade pfetch chrome-gnome-shell adw-gtk3 gnome-shell-extension-openweather-git nerd-fonts-jetbrains-mono gnome-shell-extension-tiling-assistant-git brave-bin snapd
+
 ## Flatpak
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak remote-add --if-not-existsflathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
-flatpak install --assumeyes flathub com.obsproject.Studio com.valvesoftware.Steam com.github.tchx84.Flatseal io.github.sharkwouter.Minigalaxy org.polymc.PolyMC org.gnome.TextEditor com.jetbrains.Rider io.bassi.Amberol com.microsoft.Teams
-flatpak install --assumeyes flathub-beta com.visualstudio.code.insiders
+flatpak install --assumeyes flathub com.obsproject.Studio com.valvesoftware.Steam com.github.tchx84.Flatseal io.github.sharkwouter.Minigalaxy org.polymc.PolyMC org.gnome.TextEditor io.bassi.Amberol
 
-## AUR Packages
-yay -S --needed --noconfirm itch-setup-bin noisetorch downgrade pfetch chrome-gnome-shell adw-gtk3 gnome-shell-extension-openweather-git nerd-fonts-jetbrains-mono gnome-shell-extension-tiling-assistant-git brave-bin
+## Snap
+sudo systemctl enable --now snapd.socket
+sudo ln -s /var/lib/snapd/snap /snap
+sudo snap install rider --classic
+sudo snap install code-insiders --classic
+sudo snap install teams
 
 echo "Run hp-setup [ip address of printer] to set up wireless printer"
 echo "Authenticate github using github cli"
