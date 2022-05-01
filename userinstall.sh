@@ -39,7 +39,7 @@ makepkg -si --noconfirm
 rm -rf $HOME/gitrepos
 
 ## AUR Packages
-yay -S --needed --noconfirm itch-setup-bin noisetorch downgrade pfetch chrome-gnome-shell adw-gtk3 gnome-shell-extension-openweather-git nerd-fonts-jetbrains-mono gnome-shell-extension-tiling-assistant-git brave-bin snapd
+yay -S --needed --noconfirm itch-setup-bin noisetorch downgrade chrome-gnome-shell adw-gtk3 gnome-shell-extension-openweather-git nerd-fonts-jetbrains-mono gnome-shell-extension-tiling-assistant-git brave-bin snapd
 
 ## Flatpak
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
