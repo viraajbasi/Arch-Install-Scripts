@@ -46,7 +46,7 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 flatpak install --assumeyes flathub com.obsproject.Studio com.valvesoftware.Steam com.github.tchx84.Flatseal io.github.sharkwouter.Minigalaxy org.polymc.PolyMC org.gnome.TextEditor io.bassi.Amberol
 
 ## Snap
-sudo systemctl enable --now snapd.socket
+sudo systemctl enable --now snapd.service
 sudo ln -s /var/lib/snapd/snap /snap
 sudo snap install rider --classic
 sudo snap install code-insiders --classic

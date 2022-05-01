@@ -47,7 +47,7 @@ yes | pacman -S iptables-nft
 usermod -aG libvirt $NAME
 echo -e "--save /etc/pacman.d/mirrorlist\n--country 'United Kingdom'\n--protocol https\n--latest 5\n--sort age" > /etc/xdg/reflector/reflector.conf
 echo -e "[global]\nserver string = File Server\nworkgroup = HOME\nsecurity = user\nmap to guest = bad user\nguest account = nobody\nname resolve order = bcast host\nlogging = systemd\nhide unreadable = yes\nvfs object = fruit streams_xattr" >> /etc/samba/smb.conf
-systemctl enable NetworkManager.service bluetooth.service firewalld.service sshd.service gdm.service reflector.timer cups.socket smb.service nmb.service libvirtd.service
+systemctl enable NetworkManager.service bluetooth.service firewalld.service sshd.service gdm.service reflector.timer cups.service smb.service nmb.service libvirtd.service
 usermod -s $(which fish) $NAME
 (echo "$PASSWORD"; echo "$PASSWORD") | smbpasswd -s -a "$NAME"
 
