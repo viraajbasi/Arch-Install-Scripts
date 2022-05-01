@@ -2,7 +2,6 @@ starship init fish | source
 set fish_greeting
 
 if status is-interactive
-	pfetch
 end
 
 ## Set Path ##
