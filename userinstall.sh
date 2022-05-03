@@ -39,12 +39,12 @@ makepkg -si --noconfirm
 rm -rf $HOME/gitrepos
 
 ## AUR Packages
-yay -S --needed --noconfirm itch-setup-bin noisetorch downgrade chrome-gnome-shell adw-gtk3 gnome-shell-extension-openweather-git nerd-fonts-jetbrains-mono gnome-shell-extension-tiling-assistant-git brave-bin snapd gwe
+yay -S --needed --noconfirm itch-setup-bin noisetorch downgrade chrome-gnome-shell adw-gtk3 gnome-shell-extension-openweather-git nerd-fonts-jetbrains-mono gnome-shell-extension-tiling-assistant-git brave-bin snapd gwe discover-overlay
 
 ## Flatpak
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak update --appstream
-flatpak install --assumeyes flathub com.obsproject.Studio com.valvesoftware.Steam com.github.tchx84.Flatseal io.github.sharkwouter.Minigalaxy org.polymc.PolyMC org.gnome.TextEditor io.bassi.Amberol com.valvesoftware.Steam.CompatibilityTool.Proton-GE io.github.trigg.discover_overlay
+flatpak install --assumeyes flathub com.obsproject.Studio com.valvesoftware.Steam com.github.tchx84.Flatseal io.github.sharkwouter.Minigalaxy org.polymc.PolyMC org.gnome.TextEditor io.bassi.Amberol com.valvesoftware.Steam.CompatibilityTool.Proton-GE
 
 ## Snap
 sudo systemctl enable --now snapd.service
