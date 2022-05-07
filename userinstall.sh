@@ -44,7 +44,7 @@ yay -S --needed --noconfirm itch-setup-bin noisetorch downgrade chrome-gnome-she
 ## Flatpak
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak update --appstream
-flatpak install --assumeyes flathub com.obsproject.Studio com.valvesoftware.Steam com.github.tchx84.Flatseal io.github.sharkwouter.Minigalaxy org.polymc.PolyMC org.gnome.TextEditor io.bassi.Amberol com.valvesoftware.Steam.CompatibilityTool.Proton-GE
+flatpak install --assumeyes flathub com.obsproject.Studio com.valvesoftware.Steam com.github.tchx84.Flatseal io.github.sharkwouter.Minigalaxy org.polymc.PolyMC io.bassi.Amberol com.valvesoftware.Steam.CompatibilityTool.Proton-GE
 
 ## Snap
 sudo systemctl enable --now snapd.service
