@@ -39,20 +39,7 @@ makepkg -si --noconfirm
 rm -rf $HOME/gitrepos
 
 ## AUR Packages
-yay -S --needed --noconfirm itch-setup-bin noisetorch downgrade chrome-gnome-shell adw-gtk3 gnome-shell-extension-openweather-git nerd-fonts-jetbrains-mono gnome-shell-extension-tiling-assistant-git brave-bin snapd gwe discover-overlay apple-fonts ttf-apple-emoji
-
-## Flatpak
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak update --appstream
-flatpak install --assumeyes flathub com.obsproject.Studio com.valvesoftware.Steam com.github.tchx84.Flatseal io.github.sharkwouter.Minigalaxy org.polymc.PolyMC io.bassi.Amberol com.valvesoftware.Steam.CompatibilityTool.Proton-GE
-
-## Snap
-sudo systemctl enable --now snapd.service
-sudo ln -s /var/lib/snapd/snap /snap
-sudo snap install rider --classic
-sudo snap install code-insiders --classic
-sudo snap install teams
-sudo snap install apple-music-for-linux
+yay -S --needed --noconfirm itch-setup-bin noisetorch downgrade chrome-gnome-shell adw-gtk3 nerd-fonts-cascadia-code gnome-text-editor amberol cider minigalaxy polymc rider teams ttf-google-sans visual-studio-code-insiders-bin
 
 echo "Run hp-setup [ip address of printer] to set up wireless printer"
 echo "Authenticate github using github cli"

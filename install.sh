@@ -42,7 +42,7 @@ echo "$NAME:$PASSWORD" | chpasswd
 
 ## Run full system upgrade, and install packages
 sed -i "36,37s/#//;33s/#//;38iILoveCandy" /etc/pacman.conf
-pacman -Syu --needed --noconfirm networkmanager efibootmgr man-db wget reflector dosfstools bluez bluez-utils firewalld pipewire pipewire-pulse pipewire-jack pipewire-alsa openssh which fish alacritty libreoffice discord btop neofetch gnome-calculator ncdu gnome-keyring gamemode noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra piper dotnet-runtime dotnet-sdk dotnet-host dotnet-targeting-pack python nodejs npm mono mono-msbuild github-cli rust rust-src neovim eog dconf-editor file-roller nautilus simple-scan gnome-disk-utility evince gnome-shell gnome-backgrounds gnome-color-manager gnome-control-center gnome-menus gnome-screenshot gnome-shell-extensions gnome-tweaks gdm cups hplip python-pyqt5 samba qemu libvirt virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat libguestfs swtpm ovmf starship xdg-user-dirs flatpak geary gedit totem gst-libav
+pacman -Syu --needed --noconfirm networkmanager efibootmgr man-db wget reflector dosfstools bluez bluez-utils firewalld pipewire pipewire-pulse pipewire-jack pipewire-alsa openssh which fish alacritty libreoffice discord btop neofetch gnome-calculator ncdu gnome-keyring gamemode noto-fonts noto-fonts-cjk noto-fonts-extra piper dotnet-runtime dotnet-sdk dotnet-host dotnet-targeting-pack python nodejs npm mono mono-msbuild github-cli rust rust-src neovim eog dconf-editor file-roller nautilus simple-scan gnome-disk-utility evince gnome-shell gnome-backgrounds gnome-color-manager gnome-control-center gnome-menus gnome-screenshot gnome-shell-extensions gnome-tweaks gdm cups hplip python-pyqt5 samba qemu libvirt virt-manager dnsmasq vde2 bridge-utils openbsd-netcat libguestfs swtpm ovmf starship xdg-user-dirs totem gst-libav qt5-wayland qt6-wayland ttf-joypixels evolution gnome-system-monitor steam firefox
 yes | pacman -S iptables-nft
 usermod -aG libvirt $NAME
 echo -e "--save /etc/pacman.d/mirrorlist\n--country 'United Kingdom'\n--protocol https\n--latest 5\n--sort age" > /etc/xdg/reflector/reflector.conf
@@ -52,7 +52,7 @@ usermod -s $(which fish) $NAME
 (echo "$PASSWORD"; echo "$PASSWORD") | smbpasswd -s -a "$NAME"
 
 ## Nvidia drivers
-pacman -S --needed --noconfirm nvidia-dkms nvidia-utils nvidia-settings opencl-nvidia libglvnd
+pacman -S --needed --noconfirm nvidia-open-dkms nvidia-utils nvidia-settings opencl-nvidia libglvnd lib32-nvidia-utils
 sed -i "s/MODULES=()/MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)/" /etc/mkinitcpio.conf
 sed -i "5s/$/ nvidia-drm.modeset=1/" /boot/loader/entries/arch.conf
 mkdir -p /etc/pacman.d/hooks
