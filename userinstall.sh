@@ -18,6 +18,13 @@ sudo npm -g install instant-markdown-d
 mv init.vim $HOME/.config/nvim/init.vim
 nvim +silent +PlugInstall +qall
 
+## Configure electron
+mv electron-flags.conf ~/.config/electron-flags.conf
+ln -s ~/.config/electron-flags.conf ~/.config/electron12-flags.conf
+ln -s ~/.config/electron-flags.conf ~/.config/electron16-flags.conf
+ln -s ~/.config/electron-flags.conf ~/.config/electron17-flags.conf
+ln -s ~/.config/electron-flags.conf ~/.config/code-flags.conf
+
 ## Configure starship prompt
 mv starship.toml $HOME/.config/starship.toml
 
