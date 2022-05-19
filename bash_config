@@ -1,0 +1,8 @@
+ if [ -s "${XDG_STATE_HOME:-$HOME/.local/state}/bash/bash_profile" ]; then
+    . "${XDG_STATE_HOME:-$HOME/.local/state}/bash/bash_profile"
+ fi
+
+ if [ -s "${XDG_STATE_HOME:-$HOME/.local/state}/bash/bashrc" ]; then
+    . "${XDG_STATE_HOME:-$HOME/.local/state}/bash/bashrc"
+ fi
+

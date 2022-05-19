@@ -1,0 +1,26 @@
+alt + shift + b
+    brave
+
+alt + shift + e
+    pcmanfm
+
+alt + shift + t
+    st -e btop
+
+alt + shift + n
+    st -e nvim
+
+Print
+    flameshot gui -p /home/viraaj/Pictures/Screenshots
+
+super + shift + s
+    sudo shutdown -h now
+
+super + shift + r
+    sudo reboot now
+
+XF86AudioRaiseVolume
+    pactl set-default-sink "alsa_output.usb-C-Media_Electronics_Inc._USB_Audio_Device-00.analog-stereo" && notify-send "Audio" "Changed to headphones."
+
+XF86AudioLowerVolume
+    pactl set-default-sink "alsa_output.pci-0000_2b_00.1.hdmi-stereo-extra1" && notify-send "Audio" "Changed to speakers."
