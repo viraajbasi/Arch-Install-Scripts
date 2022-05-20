@@ -44,18 +44,18 @@ mkdir -p $HOME/Documents/src
 
 ## dwm
 git clone https://github.com/viraajbasi/dwm $HOME/Documents/src/dwm
-cd $HOME/Documents/src/dwm
-sudo make clean install
+chmod +x $HOME/Documents/src/dwm/build.sh
+$HOME/Documents/src/dwm/build.sh
 
 ## st
 git clone https://github.com/viraajbasi/st $HOME/Documents/src/st
-cd $HOME/Documents/src/st
-sudo make clean install
+chmod +x $HOME/Documents/src/st/build.sh
+$HOME/Documents/src/st/build.sh
 
 ## dmenu
 git clone https://github.com/viraajbasi/dmenu $HOME/Documents/src/dmenu
-cd $HOME/Documents/src/dmenu
-sudo make clean install
+chmod +x $HOME/Documents/src/dmenu/build.sh
+$HOME/Documents/src/dmenu/build.sh
 
 ## slock
 git clone https://github.com/viraajbasi/slock $HOME/Docuements/src/slock
@@ -63,7 +63,7 @@ cd $HOME/Documents/src/slock
 sudo make clean install
 
 ## AUR Packages
-yay -S --needed --noconfirm itch-setup-bin downgrade nerd-fonts-cascadia-code cider polymc rider teams ttf-google-sans visual-studio-code-insiders-bin heroic-games-launcher-bin mailspring morgen-bin clion clion-jre nxsiv onloffice-bin ttf-ms-win11-auto
+yay -S --needed --noconfirm itch-setup-bin downgrade nerd-fonts-cascadia-code cider polymc rider teams ttf-google-sans visual-studio-code-insiders-bin heroic-games-launcher-bin mailspring morgen-bin clion clion-jre nsxiv onloffice-bin ttf-ms-win11-auto
 
 echo "Run hp-setup [ip address of printer] to set up wireless printer"
 echo "Authenticate github using github cli"
