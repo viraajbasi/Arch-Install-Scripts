@@ -19,7 +19,7 @@ export SSH_AUTH_SOCK
 
 # Bar config
 while true; do
-    xsetroot -name "| getusage |  $(uptime | awk '{print $3" "$4}' | sed 's/,//') | getwifistatus | getaudiosource |  $(date +"%H:%M %a %d %B %Y") |"
+    xsetroot -name "| $(getusage) |  $(uptime | awk '{print $3" "$4}' | sed 's/,//') | $(getwifistatus) | $(getaudiosource) |  $(date +"%H:%M %a %d %B %Y") |"
     sleep 1s
 done &
 
