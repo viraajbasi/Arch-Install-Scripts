@@ -36,31 +36,30 @@ mv xinitrc $HOME/.config/X11/xinitrc
 mv xsession $HOME/.config/X11/xsession
 
 ## yay
-git clone https://aur.archlinux.org/yay $HOME/gitrepos/yay
-cd $HOME/gitrepos/yay
-makepkg -si --noconfirm
-rm -rf $HOME/gitrepos
-mkdir -p $HOME/Documents/src
+mkdir -p $HOME/.local/src
+git clone https://aur.archlinux.org/yay $HOME/.local/src/yay
+cd $HOME/.local/src/yay
+makepkg -sri --noconfirm
 
 ## dwm
 git clone https://github.com/viraajbasi/dwm $HOME/Documents/src/dwm
-chmod +x $HOME/Documents/src/dwm/build.sh
-$HOME/Documents/src/dwm/build.sh
+chmod +x $HOME/.local/src/dwm/build.sh
+$HOME/.local/src/dwm/build.sh
 
 ## st
 git clone https://github.com/viraajbasi/st $HOME/Documents/src/st
-chmod +x $HOME/Documents/src/st/build.sh
-$HOME/Documents/src/st/build.sh
+chmod +x $HOME/.local/src/st/build.sh
+$HOME/.local/src/st/build.sh
 
 ## dmenu
 git clone https://github.com/viraajbasi/dmenu $HOME/Documents/src/dmenu
-chmod +x $HOME/Documents/src/dmenu/build.sh
-$HOME/Documents/src/dmenu/build.sh
+chmod +x $HOME/.local/src/dmenu/build.sh
+$HOME/.local/src/dmenu/build.sh
 
 ## slock
 git clone https://github.com/viraajbasi/slock $HOME/Docuements/src/slock
-cd $HOME/Documents/src/slock
-sudo make clean install
+chmod +x $HOME/.local/src/slock/build.sh
+$HOME/.local/src/slock/build.sh
 
 ## AUR Packages
 yay -S --needed --noconfirm itch-setup-bin downgrade nerd-fonts-cascadia-code cider polymc rider teams ttf-google-sans visual-studio-code-insiders-bin heroic-games-launcher-bin mailspring morgen-bin clion clion-jre nsxiv onloffice-bin ttf-ms-win11-auto
