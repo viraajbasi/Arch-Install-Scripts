@@ -35,17 +35,31 @@ mkdir -p $HOME/.config/X11
 mv xinitrc $HOME/.config/X11/xinitrc
 mv xsession $HOME/.config/X11/xsession
 
-## Git
+## yay
 git clone https://aur.archlinux.org/yay $HOME/gitrepos/yay
 cd $HOME/gitrepos/yay
 makepkg -si --noconfirm
 rm -rf $HOME/gitrepos
 mkdir -p $HOME/Documents/src
+
+## dwm
 git clone https://github.com/viraajbasi/dwm $HOME/Documents/src/dwm
 cd $HOME/Documents/src/dwm
 sudo make clean install
+
+## st
 git clone https://github.com/viraajbasi/st $HOME/Documents/src/st
 cd $HOME/Documents/src/st
+sudo make clean install
+
+## dmenu
+git clone https://github.com/viraajbasi/dmenu $HOME/Documents/src/dmenu
+cd $HOME/Documents/src/dmenu
+sudo make clean install
+
+## slock
+git clone https://github.com/viraajbasi/slock $HOME/Docuements/src/slock
+cd $HOME/Documents/src/slock
 sudo make clean install
 
 ## AUR Packages

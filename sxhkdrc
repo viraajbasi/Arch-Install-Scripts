@@ -10,14 +10,11 @@ alt + shift + t
 alt + shift + n
     st -e nvim
 
-Print
-    flameshot gui -p /home/viraaj/Pictures/Screenshots
-
 super + shift + s
-    sudo shutdown -h now
+    powermenu
 
-super + shift + r
-    sudo reboot now
+Print
+    flameshot gui -p $HOME/Pictures/Screenshots
 
 XF86AudioRaiseVolume
     pactl set-default-sink "alsa_output.usb-C-Media_Electronics_Inc._USB_Audio_Device-00.analog-stereo" && notify-send "Audio" "Changed to headphones."
