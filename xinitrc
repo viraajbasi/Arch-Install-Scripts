@@ -19,7 +19,7 @@ export SSH_AUTH_SOCK
 
 # Bar config
 while true; do
-    xsetroot -name "| $(~/.local/bin/getusage) |  $(uptime | awk '{print $3}' | tr -d ',') | $(~/.local/bin/getwifistatus) | $(~/.local/bin/getaudiosource) |  $(date +"%H:%M %a %d %B %Y") |"
+    xsetroot -name "| getusage |  $(uptime | awk '{print $3" "$4}' | sed 's/,//') | getwifistatus | getaudiosource |  $(date +"%H:%M %a %d %B %Y") |"
     sleep 1s
 done &
 
@@ -32,5 +32,18 @@ xrdb ~/.config/X11/xresources
 # Start sxhkd
 sxhkd &
 
-# Start dwm
-exec dwm
+# relaunch DWM if the binary changes, otherwise bail
+csum=""
+new_csum=$(sha1sum $(which dwm))
+while true
+do
+    if [ "$csum" != "$new_csum" ]
+    then
+        csum=$new_csum
+        exec dwm
+    else
+        exit 0
+    fi
+    new_csum=$(sha1sum $(which dwm))
+    sleep 0.5
+done
